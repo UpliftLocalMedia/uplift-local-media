@@ -1,0 +1,22 @@
+{
+  "enabled": true,
+  "title": "Get a Free Scan",
+  "description": "Find out how your business can improve its online presence with a free digital scan.",
+  "buttonText": "Ask for a Free Scan",
+  "buttonHref": "/contact-us",
+  "image": "",
+  "delay": 5,
+  "badge": "Limited Time Offer",
+  "headline": "Grow Your Business",
+  "imageAlt": "Marketing consultation",
+  "benefits": [
+    "Free 30-minute strategy session",
+    "Custom campaign recommendations",
+    "No commitment or pressure"
+  ],
+  "trustIndicators": [
+    "20+ Years Experience",
+    "{city} Experts"
+  ],
+  "dismissText": "No thanks, I'll browse first"
+}

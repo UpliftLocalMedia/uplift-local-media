@@ -1,0 +1,61 @@
+---
+interface Tile {
+  title?: string;
+  description?: string;
+  image?: string;
+  imageFit?: "cover" | "contain";
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+  cards: Tile[];
+}
+
+const { title, description, cards = [] } = Astro.props;
+---
+
+<section class="py-16 md:py-24 bg-neutral fade-in-section">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {
+      (title || description) && (
+        <div class="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+          {title && <h2 class="section-title mb-6 text-primary">{title}</h2>}
+          {description && (
+            <p class="section-description text-primary-dark" set:html={description} />
+          )}
+        </div>
+      )
+    }
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+      {
+        cards.map((card) => (
+          <div class="group relative aspect-[4/5] rounded-2xl overflow-hidden bg-primary shadow-[0_20px_60px_color-mix(in_srgb,var(--color-primary-darker)_15%,transparent)] hover:shadow-[0_25px_70px_color-mix(in_srgb,var(--color-primary-darker)_25%,transparent)] transition-all duration-500">
+            {card.image && (
+              <img
+                src={card.image}
+                alt={card.title || "Design service"}
+                class={`absolute inset-0 w-full h-full transition-transform duration-500 group-hover:scale-105 ${card.imageFit === "contain" ? "object-contain" : "object-cover"}`}
+                loading="lazy"
+              />
+            )}
+            <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/95 via-primary-dark/40 to-primary-dark/10" />
+            <div class="absolute inset-x-0 bottom-0 p-6">
+              <span class="block w-10 h-1 rounded-full bg-primary-light mb-3 transition-all duration-500 group-hover:w-16" />
+              {card.title && (
+                <h3 class="text-2xl font-bold text-neutral leading-tight">{card.title}</h3>
+              )}
+              {card.description && (
+                <p
+                  class="text-sm text-neutral/90 leading-relaxed max-h-0 opacity-0 overflow-hidden transition-all duration-500 group-hover:max-h-32 group-hover:opacity-100 group-hover:mt-2 group-focus-within:max-h-32 group-focus-within:opacity-100"
+                  set:html={card.description}
+                />
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

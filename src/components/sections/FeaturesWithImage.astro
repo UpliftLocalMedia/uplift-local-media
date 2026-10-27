@@ -1,0 +1,457 @@
+---
+import Button from "../ui/Button.astro";
+
+interface Card {
+  title?: string;
+  description?: string;
+  icon?: string;
+  image?: string;
+  /** How the card image fits its box: "cover" (default, cropped) or "contain" (whole image). */
+  imageFit?: "cover" | "contain";
+}
+
+interface Props {
+  title?: string;
+  eyebrow?: string;
+  description?: string;
+  cards: Card[];
+  ctaText?: string;
+  ctaLink?: string;
+  background?: "white" | "light" | "primary";
+  isCarousel?: boolean;
+  itemsPerSlide?: number;
+  carouselAutoplay?: boolean;
+  carouselAutoplayDelay?: number;
+}
+
+const {
+  title,
+  eyebrow,
+  description,
+  cards = [],
+  ctaText,
+  ctaLink,
+  background = "white",
+  isCarousel = false,
+  itemsPerSlide = 2,
+  carouselAutoplay = false,
+  carouselAutoplayDelay = 5000,
+} = Astro.props;
+
+const bgClasses = {
+  white: "bg-neutral",
+  light: "bg-neutral",
+  primary: "bg-primary",
+};
+
+const textColorClasses = {
+  white: "text-primary",
+  light: "text-primary",
+  primary: "text-neutral",
+};
+
+const descriptionColorClasses = {
+  white: "text-primary-dark",
+  light: "text-primary-dark",
+  primary: "text-neutral",
+};
+
+// Adaptive grid based on card count (max 3 columns)
+const getGridCols = (count: number) => {
+  if (count === 1) return "grid-cols-1 max-w-2xl mx-auto";
+  if (count === 2) return "grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto";
+  if (count === 3) return "grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
+  if (count === 4) return "grid-cols-1 md:grid-cols-2";
+  return "grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
+};
+
+const gridCols = getGridCols(cards.length);
+const carouselId = `carousel-${Math.random().toString(36).substring(2, 9)}`;
+---
+
+<section class={`py-16 md:py-24 ${bgClasses[background]} fade-in-section`}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    {
+      (eyebrow || title || description) && (
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          {eyebrow && (
+            <div class="flex justify-center mb-4">
+              <div
+                class={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${background === "primary" ? "bg-neutral/10 border border-neutral/20" : "bg-primary/5 border border-primary-light/30"}`}
+              >
+                <span
+                  class={`w-2 h-2 rounded-full ${background === "primary" ? "bg-neutral" : "bg-primary-light"}`}
+                />
+                <span
+                  class={`section-eyebrow ${background === "primary" ? "text-neutral" : "text-primary"}`}
+                >
+                  {eyebrow}
+                </span>
+              </div>
+            </div>
+          )}
+
+          {title && (
+            <h2 class={`section-title mb-6 ${textColorClasses[background]}`}>
+              {title}
+            </h2>
+          )}
+
+          {description && (
+            <p
+              class={`section-description ${descriptionColorClasses[background]}`}
+            >
+              {description}
+            </p>
+          )}
+        </div>
+      )
+    }
+
+    {
+      isCarousel ? (
+        /* Carousel Mode */
+        <div class="relative">
+          {/* Navigation Buttons */}
+          <button
+            class="carousel-btn carousel-nav carousel-nav-prev hidden md:flex items-center justify-center w-12 h-12 z-10"
+            data-carousel-prev
+            data-carousel-side
+            aria-label="Previous"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            class="carousel-btn carousel-nav carousel-nav-next hidden md:flex items-center justify-center w-12 h-12 z-10"
+            data-carousel-next
+            data-carousel-side
+            aria-label="Next"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          <div class="overflow-hidden" id={carouselId}>
+            <div class="flex transition-transform duration-500 ease-in-out" data-carousel-track>
+              {cards.map((card, index) => (
+                <div class="flex-shrink-0 px-2 sm:px-4" data-carousel-item style={`width: ${100 / itemsPerSlide}%`}>
+                  <div class="group h-full">
+                    {card.image && (
+                      <div class={`relative rounded-2xl overflow-hidden mb-6 ${card.imageFit === "contain" ? "bg-neutral" : ""}`}>
+                        <img
+                          src={card.image}
+                          alt={card.title || "Feature image"}
+                          class={`w-full aspect-[4/3] ${card.imageFit === "contain" ? "object-contain" : "object-cover"}`}
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+                    <div class="space-y-3">
+                      <div
+                        class={`inline-flex items-center justify-center w-10 h-10 rounded-lg text-lg font-bold ${
+                          background === "primary"
+                            ? "bg-neutral/10 text-neutral"
+                            : "bg-primary text-neutral"
+                        }`}
+                      >
+                        {(index + 1).toString().padStart(2, "0")}
+                      </div>
+                      {card.title && (
+                        <h3
+                          class={`text-xl md:text-2xl font-bold ${
+                            background === "primary" ? "text-neutral" : "text-primary"
+                          }`}
+                          set:html={card.title.replace(/Step \d+<br>/gi, "")}
+                        />
+                      )}
+                      {card.description && (
+                        <p
+                          class={`text-base leading-relaxed ${
+                            background === "primary"
+                              ? "text-neutral"
+                              : "text-primary-dark"
+                          }`}
+                          set:html={card.description}
+                        />
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Dots — one per card is the max; JS hides extras based on the
+              responsive items-per-slide count. */}
+          <div class="mt-8 flex items-center justify-center gap-4">
+            <button
+              class="carousel-btn md:hidden flex items-center justify-center h-10 w-10 shrink-0"
+              data-carousel-prev
+              aria-label="Previous"
+            >
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+          <div class="flex items-center justify-center gap-2" data-carousel-dots>
+              {Array.from({ length: cards.length }).map((_, i) => (
+                <button
+                  class={`w-3 h-3 rounded-full transition-all ${
+                    i === 0
+                      ? background === "primary"
+                        ? "bg-neutral w-8"
+                        : "bg-primary w-8"
+                      : background === "primary"
+                        ? "bg-neutral/30"
+                        : "bg-primary/30"
+                  }`}
+                  data-carousel-dot={i}
+                  aria-label={`Go to slide ${i + 1}`}
+                />
+              ))}
+            </div>
+            <button
+              class="carousel-btn md:hidden flex items-center justify-center h-10 w-10 shrink-0"
+              data-carousel-next
+              aria-label="Next"
+            >
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      ) : (
+        /* Grid Mode */
+        <div class={`grid ${gridCols} gap-8`}>
+          {cards.map((card, index) => (
+            <div class="group">
+              {card.image && (
+                <div class="relative rounded-2xl overflow-hidden mb-6 shadow-card-lift group-hover:shadow-card-lift-hover transition-all duration-500">
+                  <img
+                    src={card.image}
+                    alt={card.title || "Feature image"}
+                    class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              <div class="space-y-3">
+                <div
+                  class={`inline-flex items-center justify-center w-10 h-10 rounded-lg text-lg font-bold ${
+                    background === "primary"
+                      ? "bg-neutral/10 text-neutral"
+                      : "bg-primary text-neutral"
+                  }`}
+                >
+                  {(index + 1).toString().padStart(2, "0")}
+                </div>
+                {card.title && (
+                  <h3
+                    class={`text-xl md:text-2xl font-bold ${
+                      background === "primary" ? "text-neutral" : "text-primary"
+                    }`}
+                    set:html={card.title.replace(/Step \d+<br>/gi, "")}
+                  />
+                )}
+                {card.description && (
+                  <p
+                    class={`text-base leading-relaxed ${
+                      background === "primary"
+                        ? "text-neutral"
+                        : "text-primary-dark"
+                    }`}
+                    set:html={card.description}
+                  />
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      )
+    }
+
+    <!-- CTA Button -->
+    {
+      ctaText && ctaLink && (
+        <div class="mt-12 text-center">
+          <Button
+            href={ctaLink}
+            variant={background === "primary" ? "secondary" : "primary"}
+            size="lg"
+          >
+            {ctaText}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </Button>
+        </div>
+      )
+    }
+  </div>
+</section>
+
+{isCarousel && (
+  <script is:inline define:vars={{ carouselId, itemsPerSlide, autoplay: carouselAutoplay, autoplayDelay: carouselAutoplayDelay, totalCards: cards.length }}>
+    function initCarousel() {
+      const carousel = document.getElementById(carouselId);
+      if (!carousel) return;
+
+      const track = carousel.querySelector("[data-carousel-track]");
+      const items = carousel.querySelectorAll("[data-carousel-item]");
+      const prevBtns = carousel.closest("section").querySelectorAll("[data-carousel-prev]");
+      const nextBtns = carousel.closest("section").querySelectorAll("[data-carousel-next]");
+      const dots = carousel.closest("section").querySelectorAll("[data-carousel-dot]");
+
+      let currentIndex = 0;
+      let perSlide = itemsPerSlide;
+      let totalSlides = Math.ceil(totalCards / perSlide);
+      let autoplayInterval;
+
+      // Responsive items-per-slide: 1 on mobile (<640px), full count on wider
+      // screens. Recomputes card widths, slide count, and visible dots.
+      function computeLayout() {
+        perSlide = window.innerWidth < 640 ? 1 : itemsPerSlide;
+        totalSlides = Math.ceil(totalCards / perSlide);
+        items.forEach((item) => {
+          item.style.width = (100 / perSlide) + "%";
+        });
+        dots.forEach((dot, i) => {
+          dot.style.display = i < totalSlides ? "" : "none";
+        });
+        if (currentIndex > totalSlides - 1) currentIndex = totalSlides - 1;
+      }
+
+      // Side chevrons sit on the vertical centre of the card image, not of the
+      // whole card (image + text). Below md they live in the dots row instead.
+      function positionNav() {
+        const img = items[0]?.querySelector("img");
+        const wrapper = carousel.parentElement;
+        if (!img || !wrapper) return;
+        const w = wrapper.getBoundingClientRect();
+        const i = img.getBoundingClientRect();
+        wrapper.querySelectorAll("[data-carousel-side]").forEach((b) => {
+          b.style.top = (i.top - w.top + i.height / 2) + "px";
+        });
+      }
+
+      function updateCarousel() {
+        const offset = -(currentIndex * 100);
+        track.style.transform = `translateX(${offset}%)`;
+
+        dots.forEach((dot, index) => {
+          if (index === currentIndex) {
+            dot.classList.add("w-8");
+            dot.classList.remove("bg-neutral/30", "bg-primary/30");
+            dot.classList.add(dot.closest("section").classList.contains("bg-primary") ? "bg-neutral" : "bg-primary");
+          } else {
+            dot.classList.remove("w-8");
+            dot.classList.add(dot.closest("section").classList.contains("bg-primary") ? "bg-neutral/30" : "bg-primary/30");
+          }
+        });
+      }
+
+      function goToSlide(index) {
+        currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
+        updateCarousel();
+        if (autoplay) {
+          clearInterval(autoplayInterval);
+          autoplayInterval = setInterval(nextSlide, autoplayDelay);
+        }
+      }
+
+      function nextSlide() {
+        goToSlide(currentIndex < totalSlides - 1 ? currentIndex + 1 : 0);
+      }
+
+      function prevSlide() {
+        goToSlide(currentIndex > 0 ? currentIndex - 1 : totalSlides - 1);
+      }
+
+      prevBtns.forEach((b) => b.addEventListener("click", prevSlide));
+      nextBtns.forEach((b) => b.addEventListener("click", nextSlide));
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => goToSlide(index));
+      });
+
+      computeLayout();
+      updateCarousel();
+      positionNav();
+      carousel.querySelectorAll("img").forEach((im) => im.addEventListener("load", positionNav));
+
+      let resizeTimer;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          computeLayout();
+          updateCarousel();
+          positionNav();
+        }, 150);
+      });
+
+      if (autoplay) {
+        autoplayInterval = setInterval(nextSlide, autoplayDelay);
+        carousel.addEventListener("mouseenter", () => clearInterval(autoplayInterval));
+        carousel.addEventListener("mouseleave", () => {
+          autoplayInterval = setInterval(nextSlide, autoplayDelay);
+        });
+      }
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initCarousel);
+    } else {
+      initCarousel();
+    }
+    document.addEventListener("astro:after-swap", initCarousel);
+  </script>
+)}
+
+<style>
+  /* Scoped so these win over the global `button { position: relative }` rule.
+     Mirrors the sunscreen-digital layout: chevrons overlap the card edges
+     (-0.5rem, -1rem at md, -4rem at xl) and below md move into the dots row. */
+  .carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .carousel-nav-prev {
+    left: -0.5rem;
+  }
+  .carousel-nav-next {
+    right: -0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .carousel-nav-prev {
+      left: -1rem;
+    }
+    .carousel-nav-next {
+      right: -1rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .carousel-nav-prev {
+      left: -4rem;
+    }
+    .carousel-nav-next {
+      right: -4rem;
+    }
+  }
+</style>
