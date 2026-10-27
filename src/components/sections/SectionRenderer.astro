@@ -27,6 +27,7 @@ import FormSection from "~/components/sections/FormSection.astro";
 import NetworksSection from "~/components/sections/NetworksSection.astro";
 import TeamSection from "~/components/sections/TeamSection.astro";
 import ReviewsSection from "~/components/sections/ReviewsSection.astro";
+import { venueLocations } from "~/lib/venues";
 
 interface RawSection {
   discriminant?: string;
@@ -312,7 +313,7 @@ const mapLocations = (locs: any[] = []) =>
             title={v.title}
             eyebrow={v.badge || v.eyebrow}
             description={v.description}
-            locations={mapLocations(v.locations)}
+            locations={v.locations?.length ? mapLocations(v.locations) : venueLocations}
             mapUrl={v.mapUrl}
             viewMode={v.variant === "full" ? "full" : v.viewMode}
             background={bg(v.background)}

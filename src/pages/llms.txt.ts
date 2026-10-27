@@ -1,14 +1,5 @@
 import type { APIRoute } from "astro";
 import { siteConfig } from "~/config/site";
-import arvadaData from "~/data/locations/arvada.json";
-import auroraData from "~/data/locations/aurora.json";
-import centennialData from "~/data/locations/centennial.json";
-import lakewoodData from "~/data/locations/lakewood.json";
-
-const locations = [arvadaData, auroraData, centennialData, lakewoodData]
-  .map((d: any) => d.location)
-  .filter(Boolean) as string[];
-
 const body = () => `# ${siteConfig.business.name} - Digital Marketing & Indoor Billboard Advertising
 
 > Digital marketing agency specializing in indoor billboard advertising and full-service marketing for ${siteConfig.location.stateFull} businesses.
@@ -41,8 +32,7 @@ ${siteConfig.business.name} is a full-service digital marketing agency based in 
 
 ## Service Areas
 
-We serve businesses throughout ${siteConfig.location.stateFull}, including:
-${locations.map((c) => `- [${c}, ${siteConfig.location.state}](${siteConfig.seo.siteUrl}/locations/${c.toLowerCase()})`).join("\n")}
+We serve businesses in ${siteConfig.location.city}, ${siteConfig.location.state} and the surrounding towns. See our screen venues at [/indoor-billboards/locations](${siteConfig.seo.siteUrl}/indoor-billboards/locations).
 
 ## Key Pages
 

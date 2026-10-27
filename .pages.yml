@@ -55,7 +55,6 @@
 # `navOrder` follows the real navbar.json link sequence: Home, About Us, then
 # Indoor Billboards' 3 items, then Solutions' 9 megamenu items in menu order,
 # then the Contact Us CTA button, then footer-only legal pages (Privacy, Terms).
-# Locations are ordered alphabetically (the /locations index sorts that way).
 # `navLabel` is the short nav label, used as the list's primary column because a
 # page's SEO `title` legitimately differs from its nav label (home.json's title is
 # a full SEO headline; its nav label is just "Home"). Both are plain backfilled
@@ -75,10 +74,10 @@
 #     git-tracked file. Those routes are prerender=false. Pages CMS can't manage
 #     them. The FAQs / MapSection / grid copy on those two routes is also hardcoded
 #     in the .astro files, not JSON, so it's intentionally not exposed.
-#   - /locations/index.astro and /indoor-billboards (the section landing) — the
-#     locations index Hero + card grid is hardcoded in the .astro (it only reads
-#     the location files for the card list), so it's not CMS-editable; the per-city
-#     pages under it ARE (see the Location Pages collection).
+#   - /indoor-billboards (the section landing) is hardcoded in the .astro, so
+#     it's not CMS-editable. The template's per-city /locations pages were
+#     removed for this client; map sections now fall back to the shared venue
+#     list in Screen Venues (src/content/settings/venues.json).
 #   - Features.astro is an EMPTY file and ContentWithVideo.astro is imported by
 #     SectionRenderer only under discriminants no JSON uses — dead paths, nothing
 #     to wire.
@@ -271,6 +270,26 @@ content:
           - { name: rating, label: "Rating (1-5)", type: number, required: false, default: 5 }
           - { name: text, label: Review Text, type: text, required: true }
 
+  - name: venues
+    label: Screen Venues
+    type: file
+    path: src/content/settings/venues.json
+    format: json
+    description: "Indoor billboard host venues. Every map section without its own locations shows this list and map."
+    fields:
+      - { name: mapUrl, label: Map Embed URL, type: string, required: false, description: "Google Maps / My Maps embed src URL." }
+      - name: venues
+        label: Venues
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{index}. {fields.name}"
+        fields:
+          - { name: name, label: Venue Name, type: string, required: true }
+          - { name: type, label: Venue Type, type: string, required: false }
+          - { name: address, label: Street Address, type: string, required: false }
+
   - name: navbar
     label: Navbar
     type: file
@@ -426,8 +445,6 @@ content:
 
   # ===========================================================================
   # PAGES — grouped in the sidebar. Real, editable per-page content collections.
-  # Site Pages holds the &section_blocks anchor (it appears first); Location
-  # Pages aliases it (*section_blocks) since both render the same section set.
   # ===========================================================================
 
   - name: pages
@@ -469,8 +486,7 @@ content:
               collapsible:
                 collapsed: true
                 summary: "{index}. {fields.discriminant}"
-            # Anchor: shared verbatim by the Location Pages collection below.
-            blocks: &section_blocks
+            blocks:
               # -------------------------------------------------------------
               # hero — Hero.astro (image + eyebrow/title/subtitle + one CTA)
               # -------------------------------------------------------------
@@ -741,9 +757,10 @@ content:
                         description: "full = full-width map; overlay = card overlay."
                         options:
                           values: [full, overlay]
-                      - { name: mapUrl, label: Map Embed URL, type: string, required: false, description: "Google Maps embed src URL." }
+                      - { name: mapUrl, label: Map Embed URL, type: string, required: false, description: "Google Maps embed src URL. Leave blank to use the Screen Venues map." }
                       - name: locations
                         label: Locations
+                        description: "Leave empty to list the shared Screen Venues."
                         type: object
                         list:
                           collapsible:
@@ -924,44 +941,3 @@ content:
                     fields:
                       - { name: url, label: Image URL, type: string, required: false }
 
-      - name: location-pages
-        label: Location Pages
-        type: collection
-        path: src/data/locations
-        format: json
-        filename: "{primary}.json"
-        subfolders: false
-        view:
-          primary: title
-          fields:
-            - title
-            - city
-            - navOrder
-          sort:
-            - navOrder
-            - title
-          default:
-            sort: navOrder
-            order: asc
-        fields:
-          - { name: navOrder, label: Nav Order, type: number, required: false, description: "CMS list order only. Not rendered on the site." }
-          - { name: title, label: Page Title (SEO H1), type: string, required: true }
-          - { name: city, label: City, type: string, required: true, description: "Replaces the {location} token throughout this page." }
-          - { name: description, label: Meta Description, type: text, required: false }
-          - { name: keywords, label: SEO Keywords, type: text, required: false }
-          - name: sections
-            label: Page Sections
-            type: block
-            blockKey: discriminant
-            list:
-              collapsible:
-                collapsed: true
-                summary: "{index}. {fields.discriminant}"
-            blocks: *section_blocks
-          - name: metadata
-            label: SEO Metadata
-            type: object
-            fields:
-              - { name: title, label: Meta Title, type: string, required: false }
-              - { name: description, label: Meta Description, type: text, required: false }
-              - { name: keywords, label: Keywords, type: text, required: false }

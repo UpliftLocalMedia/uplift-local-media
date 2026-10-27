@@ -45,34 +45,112 @@ const source = reviewsData.source || "Google";
       }
     </div>
 
-    <!-- Reviews Grid -->
-    <div class="columns-1 md:columns-2 lg:columns-3 gap-6">
-      {
-        reviews.map((review) => (
-          <figure class="break-inside-avoid mb-6 p-6 bg-neutral rounded-2xl border-2 border-primary-light/20 hover:border-primary-light hover:shadow-lg transition-all duration-300">
-            <div class="flex gap-1 text-amber-400" aria-label={`${review.rating ?? 5} out of 5 stars`}>
-              {Array.from({ length: review.rating ?? 5 }).map(() => (
-                <Icon name="tabler:star-filled" class="w-5 h-5" />
-              ))}
-            </div>
-            <blockquote class="mt-4 text-primary-dark/80 leading-relaxed">
-              <p>{review.text}</p>
-            </blockquote>
-            <figcaption class="mt-5 flex items-center gap-3">
-              <span
-                class="w-10 h-10 shrink-0 rounded-full bg-primary text-neutral font-bold flex items-center justify-center"
-                aria-hidden="true"
-              >
-                {review.name.charAt(0)}
-              </span>
-              <span>
-                <span class="block font-bold text-primary-dark">{review.name}</span>
-                <span class="block text-sm text-primary-dark/60">Posted on {source}</span>
-              </span>
-            </figcaption>
-          </figure>
-        ))
-      }
+    <!-- Reviews Carousel -->
+    <div class="reviews-carousel" data-reviews-carousel>
+      <div
+        class="reviews-track flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2"
+        data-reviews-track
+        tabindex="0"
+        aria-label={`${source} reviews`}
+      >
+        {
+          reviews.map((review) => (
+            <figure class="review-card snap-start shrink-0 flex flex-col p-6 bg-neutral rounded-2xl border-2 border-primary-light/20 hover:border-primary-light hover:shadow-lg transition-all duration-300">
+              <div class="flex gap-1 text-amber-400" aria-label={`${review.rating ?? 5} out of 5 stars`}>
+                {Array.from({ length: review.rating ?? 5 }).map(() => (
+                  <Icon name="tabler:star-filled" class="w-5 h-5" />
+                ))}
+              </div>
+              <blockquote class="mt-4 text-primary-dark/80 leading-relaxed">
+                <p>{review.text}</p>
+              </blockquote>
+              <figcaption class="mt-auto pt-5 flex items-center gap-3">
+                <span
+                  class="w-10 h-10 shrink-0 rounded-full bg-primary text-neutral font-bold flex items-center justify-center"
+                  aria-hidden="true"
+                >
+                  {review.name.charAt(0)}
+                </span>
+                <span>
+                  <span class="block font-bold text-primary-dark">{review.name}</span>
+                  <span class="block text-sm text-primary-dark/60">Posted on {source}</span>
+                </span>
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+
+      <!-- Controls -->
+      <div class="flex items-center justify-center gap-4 mt-8">
+        <button
+          type="button"
+          class="carousel-btn flex items-center justify-center w-12 h-12 disabled:opacity-40 disabled:pointer-events-none"
+          data-reviews-prev
+          aria-label="Previous reviews"
+        >
+          <Icon name="tabler:chevron-left" class="w-5 h-5" />
+        </button>
+        <button
+          type="button"
+          class="carousel-btn flex items-center justify-center w-12 h-12 disabled:opacity-40 disabled:pointer-events-none"
+          data-reviews-next
+          aria-label="Next reviews"
+        >
+          <Icon name="tabler:chevron-right" class="w-5 h-5" />
+        </button>
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .reviews-track {
+    scrollbar-width: none;
+  }
+  .reviews-track::-webkit-scrollbar {
+    display: none;
+  }
+  /* 1 card on mobile, 2 on tablet, 3 on desktop (gap is 1.5rem). */
+  .review-card {
+    width: 100%;
+  }
+  @media (min-width: 768px) {
+    .review-card {
+      width: calc((100% - 1.5rem) / 2);
+    }
+  }
+  @media (min-width: 1024px) {
+    .review-card {
+      width: calc((100% - 3rem) / 3);
+    }
+  }
+</style>
+
+<script>
+  function initReviewCarousels() {
+    document.querySelectorAll<HTMLElement>("[data-reviews-carousel]").forEach((root) => {
+      if (root.dataset.bound) return;
+      root.dataset.bound = "true";
+      const track = root.querySelector<HTMLElement>("[data-reviews-track]");
+      const prev = root.querySelector<HTMLButtonElement>("[data-reviews-prev]");
+      const next = root.querySelector<HTMLButtonElement>("[data-reviews-next]");
+      if (!track || !prev || !next) return;
+
+      const update = () => {
+        const max = track.scrollWidth - track.clientWidth - 1;
+        prev.disabled = track.scrollLeft <= 0;
+        next.disabled = track.scrollLeft >= max;
+      };
+      // Scroll one "page" of visible cards at a time.
+      prev.addEventListener("click", () => track.scrollBy({ left: -track.clientWidth }));
+      next.addEventListener("click", () => track.scrollBy({ left: track.clientWidth }));
+      track.addEventListener("scroll", update, { passive: true });
+      window.addEventListener("resize", update);
+      update();
+    });
+  }
+
+  initReviewCarousels();
+  document.addEventListener("astro:page-load", initReviewCarousels);
+</script>

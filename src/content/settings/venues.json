@@ -1,0 +1,144 @@
+{
+  "mapUrl": "https://www.google.com/maps/d/u/0/embed?mid=1sFk1J7K1oGLpZZ2un5XUezQ4TkBDZ7o&ehbc=2E312F",
+  "venues": [
+    {
+      "name": "Jersey Mike’s (South)",
+      "type": "Sub Shop",
+      "address": "7216 S Lyncrest Pl"
+    },
+    {
+      "name": "Jersey Mike’s (East)",
+      "type": "Sub Shop",
+      "address": "613 S Highline Pl"
+    },
+    {
+      "name": "Jersey Mike’s (Louise)"
+    },
+    {
+      "name": "Frontier Climbing & Fitness",
+      "type": "Rock Climbing & Gym",
+      "address": "5045 Grant Street"
+    },
+    {
+      "name": "Frankman Motor Company (Service Center)",
+      "type": "Car Service Center & Dealership Center (separate buildings)",
+      "address": "26874 SD-11"
+    },
+    {
+      "name": "Frankman Motor Company (Dealership)",
+      "type": "Car Service Center & Dealership Center (separate buildings)",
+      "address": "26874 SD-11"
+    },
+    {
+      "name": "Woofs & Waves",
+      "type": "Pet Store & Aquarium",
+      "address": "5426 E Arrowhead Parkway"
+    },
+    {
+      "name": "Wings Gymnastics",
+      "type": "Gymnastics",
+      "address": "5825 S Bahnson Ave"
+    },
+    {
+      "name": "Team Automotive (South)",
+      "address": "4025 S Western Avenue"
+    },
+    {
+      "name": "Team Automotive (North)",
+      "address": "808 E 50th Street N"
+    },
+    {
+      "name": "Severance Brewing Co.",
+      "type": "Brewery",
+      "address": "701 N Phillips Avenue"
+    },
+    {
+      "name": "Nékter Juice Bar (South)",
+      "type": "Health Foods, Drinks & Snacks",
+      "address": "7212 S Lyncrest Place"
+    },
+    {
+      "name": "Nékter Juice Bar (East)",
+      "type": "Health Foods, Drinks & Snacks",
+      "address": "609 S Highline Place"
+    },
+    {
+      "name": "Fit Body Boot Camp",
+      "type": "Gym",
+      "address": "3324 S Duluth Avenue"
+    },
+    {
+      "name": "Empower U",
+      "type": "Physical Therapy Clinic",
+      "address": "7303 S Cliff Avenue"
+    },
+    {
+      "name": "SafeSplash Swim School (South)",
+      "type": "Swimming Lessons",
+      "address": "427 W 85th Street"
+    },
+    {
+      "name": "SafeSplash Swim School (East)",
+      "type": "Swimming Lessons",
+      "address": "603 S Highline Place"
+    },
+    {
+      "name": "Rough Cut Social",
+      "type": "Axe Throwing Venue/Bar",
+      "address": "119 W 10th Street"
+    },
+    {
+      "name": "24/7 Fitness",
+      "type": "Gym",
+      "address": "300 N Dakota Avenue"
+    },
+    {
+      "name": "The Premiere Playhouse",
+      "type": "Theatre/Acting School",
+      "address": "300 N Phillips Ave."
+    },
+    {
+      "name": "605 Running Co",
+      "type": "Retail",
+      "address": "225 E 11th Street, Suite 110"
+    },
+    {
+      "name": "Big Poppa’s Pizza",
+      "type": "Pizza Restaurant",
+      "address": "2300 S Minnesota Ave Ste B"
+    },
+    {
+      "name": "605 Ninja",
+      "type": "Recreation",
+      "address": "2101 W 41st St."
+    },
+    {
+      "name": "Antigua Taco House",
+      "type": "Mexican/Guatamalan Restaurant",
+      "address": "702 E 8th St"
+    },
+    {
+      "name": "Atomic Wings (East)",
+      "type": "Wings/Chicken Sports Restaurant",
+      "address": "1502 E 69th St, Sioux Falls"
+    },
+    {
+      "name": "Bryant Salon & Spa",
+      "type": "Salon",
+      "address": "1502 E 69th St, Sioux Falls"
+    },
+    {
+      "name": "The District"
+    },
+    {
+      "name": "Visual Swing Academy",
+      "type": "Baseball/Softball Training Facility",
+      "address": "3901 W 53rd St, Sioux Falls"
+    },
+    {
+      "name": "StretchLab",
+      "type": "Health Studio",
+      "address": "2213 W. 57th St"
+    }
+  ]
+}
