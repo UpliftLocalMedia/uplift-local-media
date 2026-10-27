@@ -970,6 +970,8 @@ content:
                           - { name: phone, label: "Phone (digits, for tel: link)", type: string, required: false }
                           - { name: email, label: Email, type: string, required: false }
                           - { name: location, label: Location, type: string, required: false }
+                      - { name: bookingText, label: Booking Button Text, type: string, required: false }
+                      - { name: bookingUrl, label: Booking Link, type: string, required: false, description: "Google Calendar appointment schedule URL. Leave empty to hide the booking button." }
                       - name: formFields
                         label: Form Fields
                         type: object

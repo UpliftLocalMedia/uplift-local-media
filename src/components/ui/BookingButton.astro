@@ -1,0 +1,76 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  /** Google Calendar appointment schedule URL. */
+  url: string;
+  label?: string;
+  class?: string;
+}
+
+const { url, label = "Book a Discovery Call", class: className } = Astro.props;
+// `gv=true` is Google's embeddable view of the booking page.
+const embedUrl = url.includes("gv=true") ? url : `${url}${url.includes("?") ? "&" : "?"}gv=true`;
+---
+
+<!-- Without JS the link opens the booking page in a new tab; with JS it opens in a popup. -->
+<a
+  href={url}
+  target="_blank"
+  rel="noopener"
+  class:list={[
+    "inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-sm sm:text-base bg-neutral text-primary-dark hover:bg-neutral-dark transition-colors",
+    className,
+  ]}
+  data-booking-open={embedUrl}
+>
+  <Icon name="tabler:calendar-event" class="w-5 h-5" aria-hidden="true" />
+  {label}
+</a>
+
+<dialog
+  class="booking-dialog m-auto p-0 w-full max-w-4xl h-[90vh] rounded-2xl bg-neutral shadow-2xl backdrop:bg-primary-darker/70"
+  aria-label={label}
+  data-booking-dialog
+>
+  <div class="flex h-full flex-col">
+    <div class="flex items-center justify-between gap-4 px-5 py-3 border-b border-neutral-darker">
+      <p class="font-bold text-primary">{label}</p>
+      <button
+        type="button"
+        class="flex items-center justify-center w-10 h-10 rounded-full text-primary hover:bg-neutral-dark"
+        aria-label="Close"
+        data-booking-close
+      >
+        <Icon name="tabler:x" class="w-6 h-6" aria-hidden="true" />
+      </button>
+    </div>
+    <iframe title={label} class="flex-1 w-full border-0" data-booking-frame></iframe>
+  </div>
+</dialog>
+
+<script>
+  function initBookingButtons() {
+    document.querySelectorAll<HTMLAnchorElement>("[data-booking-open]").forEach((link) => {
+      if (link.dataset.bound) return;
+      link.dataset.bound = "true";
+      const dialog = link.nextElementSibling as HTMLDialogElement | null;
+      const frame = dialog?.querySelector<HTMLIFrameElement>("[data-booking-frame]");
+      if (!dialog || !frame || typeof dialog.showModal !== "function") return;
+
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        // Load Google's booking page only once someone asks for it.
+        if (!frame.src) frame.src = link.dataset.bookingOpen || link.href;
+        dialog.showModal();
+      });
+      dialog.querySelector("[data-booking-close]")?.addEventListener("click", () => dialog.close());
+      // Clicking the backdrop closes the popup.
+      dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+    });
+  }
+
+  document.addEventListener("astro:page-load", initBookingButtons);
+</script>

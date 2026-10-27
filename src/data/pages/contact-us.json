@@ -28,6 +28,8 @@
           "email": "{email}",
           "location": "{city}, {stateFull}"
         },
+        "bookingText": "Book a Discovery Call",
+        "bookingUrl": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1QRcv8MbN2uUxCNfHZq-Rh6flX3cnWwKmzpun8PqmKHX_N33HBZJS_1d-o9CctlaO7ktc31Iuu",
         "formFields": [
           {
             "id": "name",

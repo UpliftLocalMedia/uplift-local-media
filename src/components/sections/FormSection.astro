@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import BookingButton from "~/components/ui/BookingButton.astro";
 
 interface FormField {
   id: string;
@@ -43,6 +44,9 @@ interface Props {
   background?: "white" | "light" | "primary";
   contactInfo?: ContactInfo[];
   image?: string;
+  /** Google Calendar appointment schedule; shows a booking button when set. */
+  bookingUrl?: string;
+  bookingText?: string;
 }
 
 const {
@@ -58,6 +62,8 @@ const {
   background = "light",
   contactInfo = [],
   image,
+  bookingUrl,
+  bookingText,
 } = Astro.props;
 
 const bgClasses = {
@@ -131,6 +137,15 @@ const descriptionColorClasses = {
                   </div>
                 )
               }
+              {bookingUrl && (
+                <div class="mb-6">
+                  <BookingButton
+                    url={bookingUrl}
+                    label={bookingText}
+                    class={background === "primary" ? undefined : "bg-primary text-neutral hover:bg-primary-dark"}
+                  />
+                </div>
+              )}
 
               <form
                 action={submitAction}
@@ -389,6 +404,11 @@ const descriptionColorClasses = {
                     </li>
                   ))}
                 </ul>
+              )}
+              {bookingUrl && (
+                <div class="mt-8">
+                  <BookingButton url={bookingUrl} label={bookingText} />
+                </div>
               )}
             </div>
 
