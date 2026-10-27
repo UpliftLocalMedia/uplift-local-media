@@ -122,6 +122,65 @@
     {
       "discriminant": "network",
       "value": {
+        "title": "Find Our Screens Around {city}",
+        "subtitle": "",
+        "description": "",
+        "networks": [
+          {
+            "title": "",
+            "brands": [
+              {
+                "name": "Fit Body Boot Camp",
+                "logo": "/images/venue-logos/fit-body-boot-camp.webp"
+              },
+              {
+                "name": "SafeSplash Swim School",
+                "logo": "/images/venue-logos/safesplash-swim-school.webp"
+              },
+              {
+                "name": "Nékter Juice Bar",
+                "logo": "/images/venue-logos/nekter-juice-bar.webp"
+              },
+              {
+                "name": "605 Running Co",
+                "logo": "/images/venue-logos/605-running-co.webp"
+              },
+              {
+                "name": "Empower U",
+                "logo": "/images/venue-logos/empower-u.webp"
+              },
+              {
+                "name": "Wings Gymnastics",
+                "logo": "/images/venue-logos/wings-gymnastics.svg"
+              },
+              {
+                "name": "Frontier Climbing & Fitness",
+                "logo": "/images/venue-logos/frontier-climbing.webp"
+              },
+              {
+                "name": "Frankman Motor Company",
+                "logo": "/images/venue-logos/frankman-motor-company.webp"
+              },
+              {
+                "name": "The Premiere Playhouse",
+                "logo": "/images/venue-logos/the-premiere-playhouse.webp"
+              },
+              {
+                "name": "Severance Brewing Co.",
+                "logo": "/images/venue-logos/severance-brewing-co.webp"
+              },
+              {
+                "name": "Jersey Mike’s",
+                "logo": "/images/venue-logos/jersey-mikes.webp"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "discriminant": "network",
+      "value": {
         "title": "Local Non-Profits Promoted",
         "subtitle": "",
         "description": "Over $5000 in advertising donated to local non-profits",
