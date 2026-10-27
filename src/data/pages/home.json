@@ -12,7 +12,9 @@
         "title": "Local Advertising and Digital Marketing Pros in {city}",
         "subtitle": "Be seen where your customers eat, work, shop, and play.",
         "buttonText": "Get in contact",
-        "buttonHref": "/contact-us"
+        "buttonHref": "/contact-us",
+        "video": "/videos/sioux-falls-hero.mp4",
+        "poster": "/videos/sioux-falls-hero-poster.avif"
       }
     },
     {

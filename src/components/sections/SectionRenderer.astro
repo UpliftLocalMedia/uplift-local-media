@@ -142,6 +142,8 @@ const mapLocations = (locs: any[] = []) =>
             secondaryCtaText={v.secondaryCtaText}
             secondaryCtaLink={v.secondaryCtaLink}
             image={v.image}
+            video={v.video}
+            poster={v.poster}
             galleryImages={(v.cards || []).map((c: any) => ({
               src: c.image,
               alt: c.title,

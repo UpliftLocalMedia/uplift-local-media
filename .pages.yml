@@ -519,6 +519,10 @@ content:
                       - { name: badge, label: Eyebrow / Badge, type: string, required: false }
                       - { name: title, label: Title, type: string, required: false }
                       - { name: subtitle, label: Subtitle, type: rich-text, required: false }
+                      - { name: buttonText, label: Button Text, type: string, required: false }
+                      - { name: buttonHref, label: Button Link, type: string, required: false }
+                      - { name: video, label: Background Video URL, type: string, required: false, description: "MP4 path (e.g. /videos/sioux-falls-hero.mp4). Shows a dark overlay with white text. Leave blank for the plain white hero." }
+                      - { name: poster, label: Video Poster Image, type: string, required: false, description: "Still frame shown while the video loads and for visitors who prefer reduced motion." }
                       - name: variant
                         label: Variant
                         type: select
