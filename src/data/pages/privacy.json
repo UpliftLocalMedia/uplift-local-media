@@ -2,7 +2,7 @@
   "navOrder": 17,
   "navLabel": "Privacy Policy",
   "title": "Privacy Policy",
-  "description": "Privacy Policy for Acme Inc.",
+  "description": "Privacy Policy for {business}",
   "keywords": "privacy policy",
   "sections": [
     {

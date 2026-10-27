@@ -7,23 +7,22 @@ import siteData from "../content/settings/site.json";
 
 const defaults = {
   business: {
-    name: "Acme Marketing",
-    fullName: "Acme Marketing",
-    tagline: "Helping Businesses Get Noticed On Screens and Online",
-    description:
-      "Full-service local marketing agency offering indoor digital billboards, website design, SEO, PPC, and social media management.",
+    name: "Uplift Local Media",
+    fullName: "Uplift Local Media",
+    tagline: "Be seen where your customers eat, work, shop, and play.",
+    description: "We are a local marketing company in Sioux Falls, SD.",
   },
   location: {
-    city: "Denver",
-    state: "CO",
-    stateFull: "Colorado",
-    address: "Denver, CO",
-    fullAddress: "Denver, CO",
+    city: "Sioux Falls",
+    state: "SD",
+    stateFull: "South Dakota",
+    address: "Sioux Falls, SD",
+    fullAddress: "Sioux Falls, SD",
   },
   contact: {
-    email: "hello@acme-marketing.example",
-    phone: "9034201090",
-    phoneFormatted: "903-420-1090",
+    email: "team@upliftlocalmedia.com",
+    phone: "6059519513",
+    phoneFormatted: "605-951-9513",
   },
   colors: {
     primary: "#0d3b3b",
@@ -31,9 +30,9 @@ const defaults = {
     quaternary: "#ffffff",
   },
   logo: {
-    src: "/logo/progressive-section.svg",
-    whiteSrc: "/logo/progressive-section-white.svg",
-    alt: "Progressive Section Template Logo",
+    src: "/logo/uplift-local-media.png",
+    whiteSrc: "/logo/uplift-local-media-white.png",
+    alt: "Uplift Local Media Logo",
   },
   social: {
     facebook: "",
@@ -43,14 +42,14 @@ const defaults = {
     youtube: "",
   },
   seo: {
-    siteName: "Acme Marketing",
-    defaultTitle: "Acme Marketing | Digital Signage and Marketing",
+    siteName: "Uplift Local Media",
+    defaultTitle: "Uplift Local Media | Indoor Billboards in Sioux Falls, SD",
     defaultDescription:
-      "Full-service local marketing agency offering indoor digital billboards, website design, SEO, PPC, and social media management.",
+      "Boost your brand in Sioux Falls, SD with Uplift Local Media's indoor billboards. Reach customers where they eat, work, shop, and play.",
     keywords: "digital marketing, indoor billboards, website design, SEO, PPC",
-    siteUrl: "https://progressive-section-template.vercel.app",
-    ogImage: "/logo/progressive-section.svg",
-    twitterHandle: "@acme-marketing",
+    siteUrl: "https://upliftlocalmedia.com",
+    ogImage: "/images/uplift-local-media-meta-banner.jpg",
+    twitterHandle: "",
   },
   analytics: { googleAnalyticsId: "" },
 };

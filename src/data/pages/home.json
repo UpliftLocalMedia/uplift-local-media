@@ -2,7 +2,7 @@
   "navOrder": 1,
   "navLabel": "Home",
   "title": "Local Advertising and Digital Marketing Pros in {city}",
-  "description": "Helping Businesses Get Noticed, On Screens and Online. Premium indoor billboard advertising and comprehensive digital marketing solutions for {city} businesses.",
+  "description": "Be seen where your customers eat, work, shop, and play. Premium indoor billboard advertising and comprehensive digital marketing solutions for {city} businesses.",
   "keywords": "{city} marketing agency, digital marketing {city}, indoor billboard advertising, marketing services {city} {state}, best marketing agency {city}, top {city} marketing agency, social media management {city}, website design {city}, PPC advertising {city}, local marketing {city}, {city} advertising agency",
   "sections": [
     {
@@ -10,7 +10,7 @@
       "value": {
         "badge": "Premium Marketing Solutions",
         "title": "Local Advertising and Digital Marketing Pros in {city}",
-        "subtitle": "Helping Businesses Get Noticed, On Screens and Online",
+        "subtitle": "Be seen where your customers eat, work, shop, and play.",
         "variant": "cards",
         "cards": [
           {
@@ -245,7 +245,7 @@
       "type": "website",
       "images": [
         {
-          "url": "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://johnh1303.sg-host.com/wp-content/uploads/2025/10/download-5-1.avif"
+          "url": "/images/uplift-local-media-meta-banner.jpg"
         }
       ]
     }

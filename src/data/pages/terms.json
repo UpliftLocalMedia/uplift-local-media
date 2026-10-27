@@ -2,7 +2,7 @@
   "navOrder": 18,
   "navLabel": "Terms of Service",
   "title": "Terms of Service",
-  "description": "Terms of Service for Acme Inc.",
+  "description": "Terms of Service for {business}",
   "keywords": "terms of service",
   "sections": [
     {
