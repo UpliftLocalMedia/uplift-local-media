@@ -345,3 +345,22 @@ const hasVideo = Boolean(video);
     }
   }
 </style>
+
+<script>
+  // ClientRouter swaps pages in without a full load, and a swapped-in <video>
+  // never fetches its src, doesn't autoplay, and doesn't pick up its `muted`
+  // attribute (which browsers need to allow autoplay). Start it explicitly on
+  // every page load.
+  function playHeroVideo() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    document.querySelectorAll<HTMLVideoElement>(".hero-video").forEach((video) => {
+      video.muted = true;
+      if (video.readyState === HTMLMediaElement.HAVE_NOTHING) video.load();
+      video.play().catch(() => {
+        // Autoplay refused (e.g. data saver); the poster image stays visible.
+      });
+    });
+  }
+
+  document.addEventListener("astro:page-load", playHeroVideo);
+</script>
