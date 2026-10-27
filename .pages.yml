@@ -290,6 +290,8 @@ content:
           - { name: name, label: Venue Name, type: string, required: true }
           - { name: type, label: Venue Type, type: string, required: false }
           - { name: address, label: Street Address, type: string, required: false }
+          - { name: image, label: Photo, type: image, required: false, description: "Shown on the locations page card (cropped to 400:284)." }
+          - { name: details, label: Audience Details, type: string, list: true, required: false, description: "One line each, e.g. Gender Breakdown: 60% male, 40% female" }
 
   - name: navbar
     label: Navbar
@@ -896,6 +898,20 @@ content:
                         required: false
                         options:
                           values: [white, primary]
+                      - { name: order, label: Order, type: number, required: false }
+              # -------------------------------------------------------------
+              # venueCards — VenueCards.astro (photo cards from Settings → Screen Venues)
+              # -------------------------------------------------------------
+              - name: venueCards
+                label: "Venue Cards"
+                fields:
+                  - name: value
+                    label: " "
+                    type: object
+                    fields:
+                      - { name: badge, label: Eyebrow / Badge, type: string, required: false }
+                      - { name: title, label: Title, type: string, required: false, description: "Leave empty to continue the section above." }
+                      - { name: description, label: Description, type: rich-text, required: false }
                       - { name: order, label: Order, type: number, required: false }
               # -------------------------------------------------------------
               # videoGallery — VideoGallery.astro (category tabs + one player)

@@ -4,141 +4,284 @@
     {
       "name": "Jersey Mike’s (South)",
       "type": "Sub Shop",
-      "address": "7216 S Lyncrest Pl"
+      "address": "7216 S Lyncrest Pl",
+      "image": "/images/venues/locations/jersey-mikes-south.webp",
+      "details": [
+        "Gender Breakdown: 60% male, 40% female",
+        "Age Range: 15-65"
+      ]
     },
     {
       "name": "Jersey Mike’s (East)",
       "type": "Sub Shop",
-      "address": "613 S Highline Pl"
+      "address": "613 S Highline Pl",
+      "image": "/images/venues/locations/jersey-mikes-east.webp",
+      "details": [
+        "Gender Breakdown: 60% male, 40% female",
+        "Age Range: 15-65"
+      ]
     },
     {
-      "name": "Jersey Mike’s (Louise)"
+      "name": "Jersey Mike’s (Louise)",
+      "image": "/images/venues/locations/jersey-mikes-louise.webp"
     },
     {
       "name": "Frontier Climbing & Fitness",
       "type": "Rock Climbing & Gym",
-      "address": "5045 Grant Street"
+      "address": "5045 Grant Street",
+      "image": "/images/venues/locations/frontier-climbing-fitness.webp",
+      "details": [
+        "Gender Breakdown: 70% male / 30% female",
+        "Age Range: 7 – 65"
+      ]
     },
     {
       "name": "Frankman Motor Company (Service Center)",
       "type": "Car Service Center & Dealership Center (separate buildings)",
-      "address": "26874 SD-11"
+      "address": "26874 SD-11",
+      "image": "/images/venues/locations/frankman-motor-company-service-center.webp",
+      "details": [
+        "Gender Breakdown: 70% male / 30% female",
+        "Age Range: 25 – 65"
+      ]
     },
     {
       "name": "Frankman Motor Company (Dealership)",
       "type": "Car Service Center & Dealership Center (separate buildings)",
-      "address": "26874 SD-11"
+      "address": "26874 SD-11",
+      "image": "/images/venues/locations/frankman-motor-company-dealership.webp",
+      "details": [
+        "Gender Breakdown: 70% male / 30% female",
+        "Age Range: 25 – 65"
+      ]
     },
     {
       "name": "Woofs & Waves",
       "type": "Pet Store & Aquarium",
-      "address": "5426 E Arrowhead Parkway"
+      "address": "5426 E Arrowhead Parkway",
+      "image": "/images/venues/locations/woofs-waves.webp",
+      "details": [
+        "Gender Breakdown: 50% male / 50% female",
+        "Age Range: 22 – 82"
+      ]
     },
     {
       "name": "Wings Gymnastics",
       "type": "Gymnastics",
-      "address": "5825 S Bahnson Ave"
+      "address": "5825 S Bahnson Ave",
+      "image": "/images/venues/locations/wings-gymnastics.webp",
+      "details": [
+        "Gender Breakdown: 25% male / 75% female*",
+        "Age Range: 25 – 55*",
+        "*parent/guardian statistics"
+      ]
     },
     {
       "name": "Team Automotive (South)",
-      "address": "4025 S Western Avenue"
+      "address": "4025 S Western Avenue",
+      "image": "/images/venues/locations/team-automotive-south.webp",
+      "details": [
+        "Gender Breakdown: 60% male / 40% female",
+        "Age Range: 25-70",
+        "*Statistics are the total between both locations."
+      ]
     },
     {
       "name": "Team Automotive (North)",
-      "address": "808 E 50th Street N"
+      "address": "808 E 50th Street N",
+      "image": "/images/venues/locations/team-automotive-north.webp",
+      "details": [
+        "Gender Breakdown: 60% male / 40% female",
+        "Age Range: 25-70",
+        "*Statistics are the total between both locations."
+      ]
     },
     {
       "name": "Severance Brewing Co.",
       "type": "Brewery",
-      "address": "701 N Phillips Avenue"
+      "address": "701 N Phillips Avenue",
+      "image": "/images/venues/locations/severance-brewing-co.webp",
+      "details": [
+        "Gender Breakdown: 60% male / 40% female",
+        "Age Range: 40 – 65"
+      ]
     },
     {
       "name": "Nékter Juice Bar (South)",
       "type": "Health Foods, Drinks & Snacks",
-      "address": "7212 S Lyncrest Place"
+      "address": "7212 S Lyncrest Place",
+      "image": "/images/venues/locations/nekter-juice-bar-south.webp",
+      "details": [
+        "Gender Breakdown: 30% male / 70% female",
+        "Age Range: 15-50"
+      ]
     },
     {
       "name": "Nékter Juice Bar (East)",
       "type": "Health Foods, Drinks & Snacks",
-      "address": "609 S Highline Place"
+      "address": "609 S Highline Place",
+      "image": "/images/venues/locations/nekter-juice-bar-east.webp",
+      "details": [
+        "Gender Breakdown: 30% male / 70% female",
+        "Age Range: 15-50"
+      ]
     },
     {
       "name": "Fit Body Boot Camp",
       "type": "Gym",
-      "address": "3324 S Duluth Avenue"
+      "address": "3324 S Duluth Avenue",
+      "image": "/images/venues/locations/fit-body-boot-camp.webp",
+      "details": [
+        "Gender Breakdown: 20% male / 80% female",
+        "Age Range: 35 – 55"
+      ]
     },
     {
       "name": "Empower U",
       "type": "Physical Therapy Clinic",
-      "address": "7303 S Cliff Avenue"
+      "address": "7303 S Cliff Avenue",
+      "image": "/images/venues/locations/empower-u.webp",
+      "details": [
+        "Gender Breakdown: 40% male / 60% female",
+        "Age Range: 30 – 50"
+      ]
     },
     {
       "name": "SafeSplash Swim School (South)",
       "type": "Swimming Lessons",
-      "address": "427 W 85th Street"
+      "address": "427 W 85th Street",
+      "image": "/images/venues/locations/safesplash-swim-school-south.webp",
+      "details": [
+        "Gender Breakdown: 25% male / 75% female*",
+        "Age Range: 25 – 45*",
+        "*parent/guardian statistics"
+      ]
     },
     {
       "name": "SafeSplash Swim School (East)",
       "type": "Swimming Lessons",
-      "address": "603 S Highline Place"
+      "address": "603 S Highline Place",
+      "image": "/images/venues/locations/safesplash-swim-school-east.webp",
+      "details": [
+        "Gender Breakdown: 25% male / 75% female*",
+        "Age Range: 25 – 45*",
+        "*parent/guardian statistics"
+      ]
     },
     {
       "name": "Rough Cut Social",
       "type": "Axe Throwing Venue/Bar",
-      "address": "119 W 10th Street"
+      "address": "119 W 10th Street",
+      "image": "/images/venues/locations/rough-cut-social.webp",
+      "details": [
+        "Gender Breakdown: 60% male / 40% female",
+        "Age Range: 21 – 55"
+      ]
     },
     {
       "name": "24/7 Fitness",
       "type": "Gym",
-      "address": "300 N Dakota Avenue"
+      "address": "300 N Dakota Avenue",
+      "image": "/images/venues/locations/24-7-fitness.webp",
+      "details": [
+        "Gender Breakdown: 75% male / 25% female",
+        "Age Range: 14-70"
+      ]
     },
     {
       "name": "The Premiere Playhouse",
       "type": "Theatre/Acting School",
-      "address": "300 N Phillips Ave."
+      "address": "300 N Phillips Ave.",
+      "image": "/images/venues/locations/the-premiere-playhouse.webp",
+      "details": [
+        "Gender Breakdown: 40% male / 60% female",
+        "Age Range: 5-85"
+      ]
     },
     {
       "name": "605 Running Co",
       "type": "Retail",
-      "address": "225 E 11th Street, Suite 110"
+      "address": "225 E 11th Street, Suite 110",
+      "image": "/images/venues/locations/605-running-co.webp",
+      "details": [
+        "Gender Breakdown: 60% female / 40% male",
+        "Age Range: 25-45"
+      ]
     },
     {
       "name": "Big Poppa’s Pizza",
       "type": "Pizza Restaurant",
-      "address": "2300 S Minnesota Ave Ste B"
+      "address": "2300 S Minnesota Ave Ste B",
+      "image": "/images/venues/locations/big-poppas-pizza.webp",
+      "details": [
+        "Gender Breakdown: 60% male, 40% female",
+        "Age Range: 15-65"
+      ]
     },
     {
       "name": "605 Ninja",
       "type": "Recreation",
-      "address": "2101 W 41st St."
+      "address": "2101 W 41st St.",
+      "image": "/images/venues/locations/605-ninja.webp",
+      "details": [
+        "Gender Breakdown: 60% male, 40% female",
+        "Age Range: 5-65"
+      ]
     },
     {
       "name": "Antigua Taco House",
       "type": "Mexican/Guatamalan Restaurant",
-      "address": "702 E 8th St"
+      "address": "702 E 8th St",
+      "image": "/images/venues/locations/antigua-taco-house.webp",
+      "details": [
+        "Gender Breakdown: 70% male, 30% female",
+        "Age Range: 18-80"
+      ]
     },
     {
       "name": "Atomic Wings (East)",
       "type": "Wings/Chicken Sports Restaurant",
-      "address": "1502 E 69th St, Sioux Falls"
+      "address": "1502 E 69th St, Sioux Falls",
+      "image": "/images/venues/locations/atomic-wings-east.webp",
+      "details": [
+        "Gender Breakdown: 75% male, 25% female",
+        "Age Range: 14-60"
+      ]
     },
     {
       "name": "Bryant Salon & Spa",
       "type": "Salon",
-      "address": "1502 E 69th St, Sioux Falls"
+      "address": "1502 E 69th St, Sioux Falls",
+      "image": "/images/venues/locations/bryant-salon-spa.webp",
+      "details": [
+        "Gender Breakdown: 85% female, 15% male",
+        "Age Range: 5-80"
+      ]
     },
     {
-      "name": "The District"
+      "name": "The District",
+      "image": "/images/venues/locations/the-district.webp"
     },
     {
       "name": "Visual Swing Academy",
       "type": "Baseball/Softball Training Facility",
-      "address": "3901 W 53rd St, Sioux Falls"
+      "address": "3901 W 53rd St, Sioux Falls",
+      "image": "/images/venues/locations/visual-swing-academy.webp",
+      "details": [
+        "Gender Breakdown: 75% male, 25% female",
+        "Age Range: 8-65"
+      ]
     },
     {
       "name": "StretchLab",
       "type": "Health Studio",
-      "address": "2213 W. 57th St"
+      "address": "2213 W. 57th St",
+      "image": "/images/venues/locations/stretchlab.webp",
+      "details": [
+        "Demographics: 25-80",
+        "Male: 50%",
+        "Female: 50%"
+      ]
     }
   ]
 }

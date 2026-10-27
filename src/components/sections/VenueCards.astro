@@ -1,0 +1,83 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Venue {
+  name: string;
+  type?: string;
+  address?: string;
+  image?: string;
+  details?: string[];
+}
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  venues: Venue[];
+}
+
+const { eyebrow, title, description, venues = [] } = Astro.props;
+const hasHeader = Boolean(eyebrow || title || description);
+---
+
+<!-- Without a heading, the cards continue the section above (e.g. the map's "Our Locations"). -->
+<section
+  class:list={["pb-16 md:pb-24 bg-neutral fade-in-section", hasHeader ? "pt-16 md:pt-24" : "pt-0"]}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    {
+      hasHeader && (
+        <div class="text-center mb-12">
+          {eyebrow && (
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary-light/30 mb-6">
+              <span class="text-sm font-bold uppercase tracking-wider text-primary">{eyebrow}</span>
+            </div>
+          )}
+          {title && <h2 class="section-title text-primary mb-4">{title}</h2>}
+          {description && (
+            <p class="section-description text-primary-dark max-w-3xl mx-auto" set:html={description} />
+          )}
+        </div>
+      )
+    }
+
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {
+        venues.map((venue) => (
+          <li class="flex flex-col bg-neutral-dark/40 rounded-2xl overflow-hidden border-2 border-primary-light/20 hover:border-primary-light hover:shadow-lg transition-all duration-300">
+            {venue.image && (
+              <img
+                src={venue.image}
+                alt={`Uplift Local Media screen at ${venue.name}`}
+                width="800"
+                height="568"
+                class="w-full aspect-400/284 object-cover"
+                loading="lazy"
+              />
+            )}
+            <div class="flex-1 p-5">
+              <h3 class="text-lg font-bold text-primary leading-snug">{venue.name}</h3>
+              {venue.type && (
+                <p class="mt-1 text-sm font-semibold text-primary-dark/80">{venue.type}</p>
+              )}
+              {venue.address && (
+                <p class="mt-3 flex items-start gap-1.5 text-sm text-primary-dark">
+                  <Icon name="tabler:map-pin" class="w-4 h-4 mt-0.5 shrink-0 text-primary-light" aria-hidden="true" />
+                  <span>{venue.address}</span>
+                </p>
+              )}
+              {venue.details && venue.details.length > 0 && (
+                <ul class="mt-3 pt-3 border-t border-primary-light/20 space-y-1 text-sm text-primary-dark/70">
+                  {venue.details.map((line) => (
+                    <li>{line}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

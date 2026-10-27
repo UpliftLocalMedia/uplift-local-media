@@ -24,6 +24,10 @@
       }
     },
     {
+      "discriminant": "venueCards",
+      "value": {}
+    },
+    {
       "discriminant": "features",
       "value": {
         "title": "Ready to Get Started?",

@@ -29,7 +29,8 @@ import TeamSection from "~/components/sections/TeamSection.astro";
 import ReviewsSection from "~/components/sections/ReviewsSection.astro";
 import ContentWithVideo from "~/components/sections/ContentWithVideo.astro";
 import VideoGallery from "~/components/sections/VideoGallery.astro";
-import { venueLocations } from "~/lib/venues";
+import VenueCards from "~/components/sections/VenueCards.astro";
+import { venueLocations, venues } from "~/lib/venues";
 
 interface RawSection {
   discriminant?: string;
@@ -475,6 +476,18 @@ const mapLocations = (locs: any[] = []) =>
             title={v.title}
             description={v.description}
             reviews={v.reviews}
+          />
+        );
+
+      // Photo cards for every screen venue in src/content/settings/venues.json.
+      case "venueCards":
+      case "VenueCards":
+        return (
+          <VenueCards
+            eyebrow={v.badge || v.eyebrow}
+            title={v.title}
+            description={v.description}
+            venues={venues}
           />
         );
 
