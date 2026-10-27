@@ -267,6 +267,7 @@ content:
             summary: "{index}. {fields.name}"
         fields:
           - { name: name, label: Reviewer Name, type: string, required: true }
+          - { name: avatar, label: Reviewer Photo, type: image, required: false, description: "Leave blank to show the first letter of the name." }
           - { name: rating, label: "Rating (1-5)", type: number, required: false, default: 5 }
           - { name: text, label: Review Text, type: text, required: true }
 
