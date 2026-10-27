@@ -11,90 +11,77 @@
         "badge": "Premium Marketing Solutions",
         "title": "Local Advertising and Digital Marketing Pros in {city}",
         "subtitle": "Be seen where your customers eat, work, shop, and play.",
-        "variant": "cards",
-        "cards": [
-          {
-            "title": "Website Design",
-            "description": "Professional design services to Stand out identity.",
-            "image": "/images/website-design.avif",
-            "href": "/solutions/foundational/website-design"
-          },
-          {
-            "title": "Google Business Profile",
-            "description": "Optimize your local presence and get found by customers searching for your services.",
-            "image": "/images/google-business-profile.avif",
-            "href": "/solutions/foundational/google-business-profile"
-          },
-          {
-            "title": "Social Media Management",
-            "description": "Build and engage your audience with strategic social media content.",
-            "image": "/images/social-media-management-hero.avif",
-            "href": "/solutions/foundational/social-media-management"
-          },
-          {
-            "title": "Indoor Billboard Advertising",
-            "description": "High-impact screen advertising in premium indoor locations.",
-            "image": "/images/indoor-billboard.avif",
-            "href": "/indoor-billboards/screen-advertising"
-          },
-          {
-            "title": "PPC Advertising",
-            "description": "Strategic pay-per-click campaigns that maximize your exposure.",
-            "image": "/images/ppc.avif",
-            "href": "/solutions/lead-gen/pay-per-click"
-          },
-          {
-            "title": "Connected TV Advertising",
-            "description": "Reach your audience on streaming platforms and smart TVs.",
-            "image": "/images/connected-tv.avif",
-            "href": "/solutions/branding-awareness/connected-tv"
-          },
-          {
-            "title": "Geofencing",
-            "description": "Target customers based on their physical location with precision.",
-            "image": "/images/geofencing.avif",
-            "href": "/solutions/branding-awareness/display-geofencing"
-          },
-          {
-            "title": "Design Services",
-            "description": "Professional graphic design and branding services.",
-            "image": "/images/design-services.avif",
-            "href": "/solutions/foundational/design-services"
-          }
-        ]
+        "buttonText": "Get in contact",
+        "buttonHref": "/contact-us"
       }
     },
     {
       "discriminant": "featuresWithButton",
       "value": {
-        "title": "Local Advertising Solutions for {city} Businesses",
-        "description": "As your trusted <strong>{city} marketing pros</strong>, our <strong><a href='/indoor-billboards/screen-advertising' class='content-link'>billboard network</a></strong> gives you access to high-traffic locations where your ideal customers spend time. From gyms and restaurants to retail stores and office buildings, we help you get noticed in the moments that matter.",
-        "buttonText": "Explore Our Digital Marketing Services",
+        "title": "Marketing Solutions",
+        "description": "From <strong><a href='/indoor-billboards/screen-advertising' class='content-link'>indoor billboards</a></strong> to full-scale digital marketing, our <strong>{city} marketing pros</strong> help your business show up, stand out, and grow.",
+        "buttonText": "Check out all our Solutions",
         "buttonHref": "/solutions",
         "features": [
           {
             "icon": "tv",
             "title": "Indoor Billboard Advertising",
-            "description": "High-impact advertising in premium indoor locations across {city}",
+            "description": "High-impact advertising in premium indoor locations across {city}.",
             "href": "/indoor-billboards/screen-advertising"
           },
           {
-            "icon": "share",
-            "title": "Social Media Marketing",
-            "description": "Build and engage your audience with strategic social media content",
-            "href": "/solutions/foundational/social-media-management"
-          },
-          {
             "icon": "palette",
-            "title": "Custom Website Design",
-            "description": "Professional websites that convert visitors into customers",
+            "title": "Website Design",
+            "description": "Custom websites that convert visitors into customers.",
             "href": "/solutions/foundational/website-design"
           },
           {
-            "icon": "target",
-            "title": "Targeted Lead Generation",
-            "description": "Strategic campaigns that generate quality leads and maximize exposure",
+            "icon": "google",
+            "title": "Google Business Profile",
+            "description": "Optimize your local presence and get found by customers.",
+            "href": "/solutions/foundational/google-business-profile"
+          },
+          {
+            "icon": "share",
+            "title": "Social Media Management",
+            "description": "Build and engage your audience with strategic social media content.",
+            "href": "/solutions/foundational/social-media-management"
+          },
+          {
+            "icon": "tools",
+            "title": "Design Services",
+            "description": "Professional design services to elevate your brand identity.",
+            "href": "/solutions/foundational/design-services"
+          },
+          {
+            "icon": "click",
+            "title": "Pay-Per-Click",
+            "description": "Targeted campaigns that generate quality leads and maximize exposure.",
             "href": "/solutions/lead-gen/pay-per-click"
+          },
+          {
+            "icon": "ad",
+            "title": "Social Media Advertising",
+            "description": "Targeted social media ads that drive calls, clicks, and leads.",
+            "href": "/solutions/lead-gen/social-media-advertising"
+          },
+          {
+            "icon": "tv",
+            "title": "Connected TV (OTT Ads)",
+            "description": "Reach audiences on streaming platforms with targeted TV advertising.",
+            "href": "/solutions/branding-awareness/connected-tv"
+          },
+          {
+            "icon": "focus-2",
+            "title": "Display (Geofencing)",
+            "description": "Location-based display advertising that targets customers where they are.",
+            "href": "/solutions/branding-awareness/display-geofencing"
+          },
+          {
+            "icon": "headphones",
+            "title": "Streaming Audio",
+            "description": "Strategic streaming audio ads that captivate at the perfect moment.",
+            "href": "/solutions/branding-awareness/streaming-audio"
           }
         ]
       }
@@ -131,31 +118,89 @@
       }
     },
     {
-      "discriminant": "content",
+      "discriminant": "network",
       "value": {
-        "variant": "simple",
-        "title": "Full-Service Digital Marketing from {city} Pros",
-        "description": "Beyond <strong><a href='/indoor-billboards/screen-advertising' class='content-link'>screen ads</a></strong>, our <strong>{city} marketing pros</strong> provide full-scale digital marketing to help your business show up, stand out, and grow. Whether you're just getting started or need help scaling your outreach, we've got the tools and the team to support you.",
-        "image": "/images/boost-visibility.avif",
-        "imagePosition": "right",
-        "buttonText": "View All Marketing Solutions",
-        "buttonHref": "/solutions",
-        "features": [
+        "title": "Local Non-Profits Promoted",
+        "subtitle": "",
+        "description": "Over $5000 in advertising donated to local non-profits",
+        "networks": [
           {
-            "icon": "google",
-            "text": "Google Business Profile Setup. Get found on Google Maps and local search."
-          },
-          {
-            "icon": "monitor",
-            "text": "Professional Website Design. Fast, mobile-ready websites built for performance."
-          },
-          {
-            "icon": "share2",
-            "text": "Social Media Strategy. Consistent posting and creative to grow your presence."
-          },
-          {
-            "icon": "target",
-            "text": "PPC Campaign Management. Targeted ads that drive calls, clicks, and leads."
+            "title": "",
+            "itemsPerView": 3,
+            "brands": [
+              {
+                "name": "Union Gospel Mission",
+                "logo": "/images/non-profits/union-gospel-mission.webp"
+              },
+              {
+                "name": "Tre Ministries",
+                "logo": "/images/non-profits/tre-ministries.webp"
+              },
+              {
+                "name": "The Compass Center",
+                "logo": "/images/non-profits/the-compass-center.webp"
+              },
+              {
+                "name": "TeamMates",
+                "logo": "/images/non-profits/teammates.webp"
+              },
+              {
+                "name": "Rare by Design",
+                "logo": "/images/non-profits/rare-by-design.webp"
+              },
+              {
+                "name": "One Leg B4 The Other",
+                "logo": "/images/non-profits/one-leg-b4-the-other.webp"
+              },
+              {
+                "name": "Interlakes Community Action Partnership",
+                "logo": "/images/non-profits/interlakes-community-action-partnership.webp"
+              },
+              {
+                "name": "Hurdle Life Coach Foundation",
+                "logo": "/images/non-profits/hurdle-life-coach-foundation.webp"
+              },
+              {
+                "name": "Helpline Center",
+                "logo": "/images/non-profits/helpline-center.webp"
+              },
+              {
+                "name": "Habitat for Humanity",
+                "logo": "/images/non-profits/habitat-for-humanity.webp"
+              },
+              {
+                "name": "Grateful4",
+                "logo": "/images/non-profits/grateful4.webp"
+              },
+              {
+                "name": "Girl Scouts Dakota Horizons",
+                "logo": "/images/non-profits/girl-scouts.webp"
+              },
+              {
+                "name": "Fortitude Ministries",
+                "logo": "/images/non-profits/fortitude-ministries.webp"
+              },
+              {
+                "name": "DakotAbilities",
+                "logo": "/images/non-profits/dakotabilities.webp"
+              },
+              {
+                "name": "Corporate Cares",
+                "logo": "/images/non-profits/corporate-cares.webp"
+              },
+              {
+                "name": "Chrysalis Collective",
+                "logo": "/images/non-profits/chrysalis-collective.webp"
+              },
+              {
+                "name": "Call To Freedom",
+                "logo": "/images/non-profits/call-to-freedom.webp"
+              },
+              {
+                "name": "Bridging the Gap",
+                "logo": "/images/non-profits/btg-logo.webp"
+              }
+            ]
           }
         ]
       }

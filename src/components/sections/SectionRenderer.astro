@@ -408,6 +408,7 @@ const mapLocations = (locs: any[] = []) =>
         return (
           <NetworksSection
             title={v.title}
+            subtitle={"subtitle" in v ? v.subtitle : undefined}
             description={v.description}
             networks={v.networks}
           />
