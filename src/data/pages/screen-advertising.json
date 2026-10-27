@@ -21,7 +21,38 @@
         "variant": "two-column",
         "title": "Screen Network Ads",
         "description": "Your personalized motion advertisement will be showcased repeatedly across our hyper-local digital screen network, reaching individuals as they navigate their daily routines. With your name, brand, and logo prominently displayed, you'll stay at the forefront of existing customers' minds while building brand awareness among potential new customers. Our screens are strategically placed in <strong><a href='/indoor-billboards/locations' class='content-link'>high-traffic venues across {city}</a></strong>, ensuring maximum visibility for your brand.",
-        "image": "/images/screen-network-3.avif",
+        "images": [
+          {
+            "src": "/images/venues/severance-brewing-co.webp",
+            "caption": "Severance Brewing Co.",
+            "alt": "Uplift Local Media screen inside Severance Brewing Co."
+          },
+          {
+            "src": "/images/venues/swamp-daddys.webp",
+            "caption": "Swamp Daddy's",
+            "alt": "Uplift Local Media screen inside Swamp Daddy's"
+          },
+          {
+            "src": "/images/venues/rough-cut-social.webp",
+            "caption": "Rough Cut Social",
+            "alt": "Uplift Local Media screen inside Rough Cut Social"
+          },
+          {
+            "src": "/images/venues/24-7-fitness.webp",
+            "caption": "24/7 Fitness",
+            "alt": "Uplift Local Media screen inside 24/7 Fitness"
+          },
+          {
+            "src": "/images/venues/nekter-juice-bar-south.webp",
+            "caption": "Nekter Juice Bar South",
+            "alt": "Uplift Local Media screen inside Nekter Juice Bar South"
+          },
+          {
+            "src": "/images/venues/nekter-juice-bar-east.webp",
+            "caption": "Nekter Juice Bar East",
+            "alt": "Uplift Local Media screen inside Nekter Juice Bar East"
+          }
+        ],
         "imagePosition": "left",
         "background": "primary-dark"
       }
@@ -100,6 +131,92 @@
             "title": "Step 4<br>Maintenance + Updates",
             "description": "Throughout the lifetime of your contract, we'll be in regular contact to ensure that your ad is up-to-date and engaging to your audience.",
             "image": "/images/maintenance.avif"
+          }
+        ]
+      }
+    },
+    {
+      "discriminant": "contentVideo",
+      "value": {
+        "title": "Demo Loop Example",
+        "background": "white",
+        "rows": [
+          {
+            "video": "/videos/host-partner/demo-loop.mp4",
+            "poster": "/videos/host-partner/demo-loop.webp"
+          }
+        ]
+      }
+    },
+    {
+      "discriminant": "videoGallery",
+      "value": {
+        "title": "Industry Ad Examples",
+        "items": [
+          {
+            "title": "Restaurant",
+            "video": "/videos/host-partner/restaurant.mp4",
+            "poster": "/videos/host-partner/restaurant.webp"
+          },
+          {
+            "title": "Gym",
+            "video": "/videos/host-partner/gym.mp4",
+            "poster": "/videos/host-partner/gym.webp"
+          },
+          {
+            "title": "Brewery",
+            "video": "/videos/host-partner/brewery.mp4",
+            "poster": "/videos/host-partner/brewery.webp"
+          },
+          {
+            "title": "Escape Room",
+            "video": "/videos/host-partner/escape-room.mp4",
+            "poster": "/videos/host-partner/escape-room.webp"
+          },
+          {
+            "title": "Gymnastics",
+            "video": "/videos/host-partner/gymnastics.mp4",
+            "poster": "/videos/host-partner/gymnastics.webp"
+          },
+          {
+            "title": "Swim School",
+            "video": "/videos/host-partner/swim-school.mp4",
+            "poster": "/videos/host-partner/swim-school.webp"
+          },
+          {
+            "title": "Axe Throwing",
+            "video": "/videos/host-partner/axe-throwing.mp4",
+            "poster": "/videos/host-partner/axe-throwing.webp"
+          },
+          {
+            "title": "Cafe",
+            "video": "/videos/host-partner/cafe.mp4",
+            "poster": "/videos/host-partner/cafe.webp"
+          },
+          {
+            "title": "Electrician",
+            "video": "/videos/host-partner/electrician.mp4",
+            "poster": "/videos/host-partner/electrician.webp"
+          },
+          {
+            "title": "Automotive",
+            "video": "/videos/host-partner/automotive.mp4",
+            "poster": "/videos/host-partner/automotive.webp"
+          },
+          {
+            "title": "Physical Therapy",
+            "video": "/videos/host-partner/physical-therapy.mp4",
+            "poster": "/videos/host-partner/physical-therapy.webp"
+          },
+          {
+            "title": "Theater",
+            "video": "/videos/host-partner/theater.mp4",
+            "poster": "/videos/host-partner/theater.webp"
+          },
+          {
+            "title": "Realtor",
+            "video": "/videos/host-partner/realtor.mp4",
+            "poster": "/videos/host-partner/realtor.webp"
           }
         ]
       }

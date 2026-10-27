@@ -565,6 +565,18 @@ content:
                       - { name: description, label: Description, type: rich-text, required: false, description: "Renders as HTML. Use the Source tab for styled links." }
                       - { name: image, label: Image, type: image, required: false }
                       - { name: imageAlt, label: Image Alt Text, type: string, required: false }
+                      - name: images
+                        label: Image Carousel
+                        description: "Two or more photos show as a carousel in place of the single image (plain layout only)."
+                        type: object
+                        list:
+                          collapsible:
+                            collapsed: true
+                            summary: "{index}. {fields.caption}"
+                        fields:
+                          - { name: src, label: Image, type: image, required: true }
+                          - { name: caption, label: Caption, type: string, required: false }
+                          - { name: alt, label: Alt Text, type: string, required: false }
                       - name: imagePosition
                         label: Image Position
                         type: select

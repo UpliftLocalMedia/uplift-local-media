@@ -1,0 +1,165 @@
+---
+interface Slide {
+  src: string;
+  alt?: string;
+  /** Shown under the photo (e.g. the venue name). */
+  caption?: string;
+}
+
+interface Props {
+  slides: Slide[];
+  /** Accessible name for the carousel region. */
+  label?: string;
+}
+
+const { slides = [], label = "Photos" } = Astro.props;
+---
+
+<div
+  class="image-carousel relative rounded-2xl overflow-hidden bg-primary-darker shadow-[0_20px_60px_color-mix(in_srgb,var(--color-primary-darker)_30%,transparent)]"
+  role="region"
+  aria-roledescription="carousel"
+  aria-label={label}
+  data-image-carousel
+>
+  <div class="relative">
+    <ul
+      class="carousel-track flex overflow-x-auto snap-x snap-mandatory scroll-smooth"
+      data-carousel-track
+    >
+      {
+        slides.map((slide, index) => (
+          <li
+            class="w-full shrink-0 snap-start"
+            role="group"
+            aria-roledescription="slide"
+            aria-label={`${index + 1} of ${slides.length}`}
+          >
+            <figure>
+              <img
+                src={slide.src}
+                alt={slide.alt || slide.caption || ""}
+                width="1200"
+                height="900"
+                class="w-full aspect-[4/3] object-cover"
+                loading={index === 0 ? "eager" : "lazy"}
+                draggable="false"
+              />
+              {slide.caption && (
+                <figcaption class="px-4 py-5 text-center text-xl md:text-2xl font-semibold text-neutral">
+                  {slide.caption}
+                </figcaption>
+              )}
+            </figure>
+          </li>
+        ))
+      }
+    </ul>
+
+    {
+      slides.length > 1 && (
+        <!-- Arrows sit over the photo (4:3), not the caption below it. -->
+        <div class="absolute inset-x-0 top-0 aspect-[4/3] flex items-center justify-between px-3 pointer-events-none">
+          <button type="button" class="carousel-arrow pointer-events-auto" aria-label="Previous photo" data-carousel-prev>
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m15 18-6-6 6-6" />
+            </svg>
+          </button>
+          <button type="button" class="carousel-arrow pointer-events-auto" aria-label="Next photo" data-carousel-next>
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </button>
+        </div>
+      )
+    }
+  </div>
+
+  {
+    slides.length > 1 && (
+      <div class="flex justify-center gap-2 pb-5">
+        {slides.map((slide, index) => (
+          <button
+            type="button"
+            class="carousel-dot"
+            aria-label={`Show ${slide.caption || `photo ${index + 1}`}`}
+            aria-current={index === 0 ? "true" : undefined}
+            data-carousel-dot={index}
+          />
+        ))}
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .carousel-track {
+    scrollbar-width: none;
+  }
+  .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+  .carousel-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 9999px;
+    color: var(--color-neutral);
+    background: color-mix(in srgb, var(--color-primary-darker) 45%, transparent);
+    transition: background-color 0.2s ease;
+  }
+  .carousel-arrow:hover,
+  .carousel-arrow:focus-visible {
+    background: color-mix(in srgb, var(--color-primary-darker) 75%, transparent);
+  }
+  .carousel-dot {
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 9999px;
+    background: color-mix(in srgb, var(--color-neutral) 35%, transparent);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  .carousel-dot[aria-current="true"] {
+    background: var(--color-neutral);
+    transform: scale(1.2);
+  }
+</style>
+
+<script>
+  function initImageCarousels() {
+    document.querySelectorAll<HTMLElement>("[data-image-carousel]").forEach((root) => {
+      if (root.dataset.bound) return;
+      root.dataset.bound = "true";
+      const track = root.querySelector<HTMLElement>("[data-carousel-track]");
+      const dots = root.querySelectorAll<HTMLButtonElement>("[data-carousel-dot]");
+      if (!track || dots.length === 0) return;
+
+      const current = () => Math.round(track.scrollLeft / track.clientWidth);
+      // Arrows wrap around at either end.
+      const goTo = (index: number) => {
+        const count = dots.length;
+        track.scrollTo({ left: ((index + count) % count) * track.clientWidth });
+      };
+
+      root.querySelector("[data-carousel-prev]")?.addEventListener("click", () => goTo(current() - 1));
+      root.querySelector("[data-carousel-next]")?.addEventListener("click", () => goTo(current() + 1));
+      dots.forEach((dot, index) => dot.addEventListener("click", () => goTo(index)));
+
+      track.addEventListener(
+        "scroll",
+        () => {
+          const active = current();
+          dots.forEach((dot, index) => {
+            if (index === active) dot.setAttribute("aria-current", "true");
+            else dot.removeAttribute("aria-current");
+          });
+        },
+        { passive: true },
+      );
+    });
+  }
+
+  document.addEventListener("astro:page-load", initImageCarousels);
+</script>
