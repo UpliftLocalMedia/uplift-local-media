@@ -37,11 +37,11 @@ const { eyebrow, title, description, members = [] } = Astro.props;
       )
     }
 
-    <!-- Team Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+    <!-- Team Grid: wraps and centers, so an uneven last row stays balanced -->
+    <div class="flex flex-wrap justify-center gap-6 md:gap-8">
       {
         members.map((member) => (
-          <article class="team-card flex flex-col bg-neutral rounded-2xl border-2 border-primary-light/20 hover:border-primary-light hover:shadow-lg transition-all duration-300 overflow-hidden">
+          <article class="team-card w-full sm:w-[calc((100%-1.5rem)/2)] md:w-[calc((100%-2rem)/2)] lg:w-[calc((100%-4rem)/3)] flex flex-col bg-neutral rounded-2xl border-2 border-primary-light/20 hover:border-primary-light hover:shadow-lg transition-all duration-300 overflow-hidden">
             {member.image && (
               <img
                 src={member.image}
