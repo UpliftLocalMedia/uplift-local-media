@@ -67,6 +67,17 @@
       }
     },
     {
+      "discriminant": "contentVideo",
+      "value": {
+        "title": "How it Works",
+        "description": "<p>Join a network of hyper local indoor billboards where your community eats, shops, works out or plays. We will install a new 40-85″ TV or use an existing TV and that TV will earn you up to $9,000 in free marketing assets and advertising around town.</p><p>Be seen by locals to increase retention, frequency, word of mouth referrals and reach new people near your business.</p><p><strong>Concept</strong></p><p>Have your business and brand promoted inside of your location and on ten screens in our network of non-competitive host partners.</p><p>Free ad creation and updates, free install of a TV or use of an existing smart TV, the most play-time of anyone on your screen, and creation of a tight-knit business community.</p>",
+        "video": "/videos/host-partner/demo-loop.mp4",
+        "poster": "/videos/host-partner/demo-loop.webp",
+        "caption": "Content Example",
+        "loop": true
+      }
+    },
+    {
       "discriminant": "valueCards",
       "value": {
         "title": "How do I Become a Venue Partner?",
@@ -90,6 +101,79 @@
             "title": "Step 3<br>Approve Your Ad and Installation Date",
             "description": "Review and approve your custom venue ad design, then select a convenient installation date. Our professional team will handle all technical setup, and you'll be live on the network in no time.",
             "image": "/images/installation-date.avif"
+          }
+        ]
+      }
+    },
+    {
+      "discriminant": "videoGallery",
+      "value": {
+        "title": "Example Ads",
+        "items": [
+          {
+            "title": "Restaurant",
+            "video": "/videos/host-partner/restaurant.mp4",
+            "poster": "/videos/host-partner/restaurant.webp"
+          },
+          {
+            "title": "Gym",
+            "video": "/videos/host-partner/gym.mp4",
+            "poster": "/videos/host-partner/gym.webp"
+          },
+          {
+            "title": "Brewery",
+            "video": "/videos/host-partner/brewery.mp4",
+            "poster": "/videos/host-partner/brewery.webp"
+          },
+          {
+            "title": "Escape Room",
+            "video": "/videos/host-partner/escape-room.mp4",
+            "poster": "/videos/host-partner/escape-room.webp"
+          },
+          {
+            "title": "Gymnastics",
+            "video": "/videos/host-partner/gymnastics.mp4",
+            "poster": "/videos/host-partner/gymnastics.webp"
+          },
+          {
+            "title": "Swim School",
+            "video": "/videos/host-partner/swim-school.mp4",
+            "poster": "/videos/host-partner/swim-school.webp"
+          },
+          {
+            "title": "Axe Throwing",
+            "video": "/videos/host-partner/axe-throwing.mp4",
+            "poster": "/videos/host-partner/axe-throwing.webp"
+          },
+          {
+            "title": "Cafe",
+            "video": "/videos/host-partner/cafe.mp4",
+            "poster": "/videos/host-partner/cafe.webp"
+          },
+          {
+            "title": "Electrician",
+            "video": "/videos/host-partner/electrician.mp4",
+            "poster": "/videos/host-partner/electrician.webp"
+          },
+          {
+            "title": "Automotive",
+            "video": "/videos/host-partner/automotive.mp4",
+            "poster": "/videos/host-partner/automotive.webp"
+          },
+          {
+            "title": "Physical Therapy",
+            "video": "/videos/host-partner/physical-therapy.mp4",
+            "poster": "/videos/host-partner/physical-therapy.webp"
+          },
+          {
+            "title": "Theater",
+            "video": "/videos/host-partner/theater.mp4",
+            "poster": "/videos/host-partner/theater.webp"
+          },
+          {
+            "title": "Realtor",
+            "video": "/videos/host-partner/realtor.mp4",
+            "poster": "/videos/host-partner/realtor.webp"
           }
         ]
       }

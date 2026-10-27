@@ -1,0 +1,146 @@
+---
+import Button from "~/components/ui/Button.astro";
+
+interface Item {
+  title: string;
+  video: string;
+  poster?: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  items?: Item[];
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const { eyebrow, title, description, items = [], ctaText, ctaLink } = Astro.props;
+const first = items[0];
+const galleryId = `video-gallery-${Math.random().toString(36).slice(2, 9)}`;
+---
+
+<section class="py-16 md:py-24 bg-neutral-dark fade-in-section">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    {
+      (eyebrow || title || description) && (
+        <div class="text-center mb-10 md:mb-12">
+          {eyebrow && (
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary-light/30 mb-6">
+              <span class="text-sm font-bold uppercase tracking-wider text-primary">{eyebrow}</span>
+            </div>
+          )}
+          {title && <h2 class="section-title text-primary mb-4">{title}</h2>}
+          {description && (
+            <p class="section-description text-primary-dark max-w-3xl mx-auto" set:html={description} />
+          )}
+        </div>
+      )
+    }
+
+    {
+      first && (
+        <div data-video-gallery>
+          <!-- Category tabs -->
+          <div
+            class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8"
+            role="tablist"
+            aria-label={title || "Videos"}
+          >
+            {items.map((item, index) => (
+              <button
+                type="button"
+                role="tab"
+                id={`${galleryId}-tab-${index}`}
+                aria-controls={`${galleryId}-panel`}
+                aria-selected={index === 0 ? "true" : "false"}
+                data-video={item.video}
+                data-poster={item.poster}
+                data-title={item.title}
+                class="video-tab px-4 py-2 rounded-full text-sm font-semibold border-2 transition-all duration-200"
+              >
+                {item.title}
+              </button>
+            ))}
+          </div>
+
+          <!-- Player -->
+          <div
+            id={`${galleryId}-panel`}
+            role="tabpanel"
+            aria-labelledby={`${galleryId}-tab-0`}
+            class="relative rounded-2xl overflow-hidden shadow-[0_20px_60px_color-mix(in_srgb,var(--color-primary-darker)_30%,transparent)] bg-primary-darker"
+          >
+            <video
+              class="w-full aspect-video"
+              src={first.video}
+              poster={first.poster}
+              controls
+              playsinline
+              preload="none"
+              aria-label={first.title}
+              data-video-player
+            />
+          </div>
+        </div>
+      )
+    }
+
+    {
+      ctaText && ctaLink && (
+        <div class="text-center mt-10">
+          <Button href={ctaLink} size="lg">
+            {ctaText}
+          </Button>
+        </div>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .video-tab {
+    background: var(--color-neutral);
+    border-color: color-mix(in srgb, var(--color-primary-light) 30%, transparent);
+    color: var(--color-primary-dark);
+  }
+  .video-tab:hover {
+    border-color: var(--color-primary-light);
+  }
+  .video-tab[aria-selected="true"] {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-neutral);
+  }
+</style>
+
+<script>
+  function initVideoGalleries() {
+    document.querySelectorAll<HTMLElement>("[data-video-gallery]").forEach((gallery) => {
+      if (gallery.dataset.bound) return;
+      gallery.dataset.bound = "true";
+      const player = gallery.querySelector<HTMLVideoElement>("[data-video-player]");
+      const panel = gallery.querySelector<HTMLElement>('[role="tabpanel"]');
+      const tabs = gallery.querySelectorAll<HTMLButtonElement>(".video-tab");
+      if (!player || !panel) return;
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          if (tab.getAttribute("aria-selected") === "true") return;
+          tabs.forEach((t) => t.setAttribute("aria-selected", String(t === tab)));
+          panel.setAttribute("aria-labelledby", tab.id);
+          player.pause();
+          player.poster = tab.dataset.poster || "";
+          player.src = tab.dataset.video || "";
+          player.setAttribute("aria-label", tab.dataset.title || "");
+          // The click is a user gesture, so playback with sound is allowed.
+          player.play().catch(() => {});
+        });
+      });
+    });
+  }
+
+  document.addEventListener("astro:page-load", initVideoGalleries);
+</script>

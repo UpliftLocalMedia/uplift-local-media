@@ -27,6 +27,8 @@ import FormSection from "~/components/sections/FormSection.astro";
 import NetworksSection from "~/components/sections/NetworksSection.astro";
 import TeamSection from "~/components/sections/TeamSection.astro";
 import ReviewsSection from "~/components/sections/ReviewsSection.astro";
+import ContentWithVideo from "~/components/sections/ContentWithVideo.astro";
+import VideoGallery from "~/components/sections/VideoGallery.astro";
 import { venueLocations } from "~/lib/venues";
 
 interface RawSection {
@@ -430,6 +432,36 @@ const mapLocations = (locs: any[] = []) =>
             title={v.title}
             description={v.description}
             members={v.members}
+          />
+        );
+
+      case "contentVideo":
+      case "ContentWithVideo":
+        if (!v.video) return null;
+        return (
+          <ContentWithVideo
+            eyebrow={v.badge || v.eyebrow}
+            title={v.title}
+            description={v.description}
+            videoUrl={v.video}
+            poster={v.poster}
+            caption={v.caption}
+            loop={v.loop}
+            background={bg(v.background)}
+          />
+        );
+
+      case "videoGallery":
+      case "VideoGallery":
+        if (!v.items || v.items.length === 0) return null;
+        return (
+          <VideoGallery
+            eyebrow={v.badge || v.eyebrow}
+            title={v.title}
+            description={v.description}
+            items={v.items}
+            ctaText={v.buttonText || v.ctaText}
+            ctaLink={v.buttonHref || v.ctaLink}
           />
         );
 

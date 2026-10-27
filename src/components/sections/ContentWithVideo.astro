@@ -3,6 +3,12 @@ interface Props {
   title: string;
   description: string;
   videoUrl: string;
+  /** Still frame shown before the video plays. */
+  poster?: string;
+  /** Small label under the video (e.g. "Content Example"). */
+  caption?: string;
+  /** Play muted on a silent loop with no controls instead of a click-to-play player. */
+  loop?: boolean;
   eyebrow?: string;
   background?: "white" | "primary" | "primary-dark" | "light";
 }
@@ -11,6 +17,9 @@ const {
   title,
   description,
   videoUrl,
+  poster,
+  caption,
+  loop = false,
   eyebrow,
   background = "white",
 } = Astro.props;
@@ -71,10 +80,9 @@ const descriptionColorClasses = {
           </div>
 
           <div
-            class={`section-description ${descriptionColorClasses[background]}`}
-          >
-            {description}
-          </div>
+            class={`section-description space-y-4 ${descriptionColorClasses[background]}`}
+            set:html={description}
+          />
         </div>
       </div>
 
@@ -91,11 +99,33 @@ const descriptionColorClasses = {
           <div
             class="relative rounded-2xl overflow-hidden shadow-[0_20px_60px_color-mix(in_srgb,var(--color-primary-darker)_30%,transparent)] bg-primary-darker"
           >
-            <video controls class="w-full h-auto" preload="metadata">
-              <source src={videoUrl} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            {loop ? (
+              <video
+                class="loop-video w-full h-auto"
+                src={videoUrl}
+                poster={poster}
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                aria-label={caption || title}
+              />
+            ) : (
+              <video controls class="w-full h-auto" preload="metadata" poster={poster}>
+                <source src={videoUrl} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            )}
           </div>
+
+          {caption && (
+            <p
+              class={`relative mt-4 text-center text-sm font-semibold uppercase tracking-wider ${background === "primary" || background === "primary-dark" ? "text-neutral/80" : "text-primary"}`}
+            >
+              {caption}
+            </p>
+          )}
 
           <!-- Corner accent -->
           <div
@@ -107,3 +137,9 @@ const descriptionColorClasses = {
     </div>
   </div>
 </section>
+
+<script>
+  import { playAutoplayVideos } from "~/lib/autoplayVideos";
+
+  document.addEventListener("astro:page-load", () => playAutoplayVideos(".loop-video"));
+</script>
