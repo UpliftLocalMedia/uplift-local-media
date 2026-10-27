@@ -854,7 +854,7 @@ content:
                       - { name: description, label: Description, type: rich-text, required: false }
                       - { name: order, label: Order, type: number, required: false }
               # -------------------------------------------------------------
-              # contentVideo — ContentWithVideo.astro (text beside a video)
+              # contentVideo — ContentWithVideo.astro (rows of text beside a video)
               # -------------------------------------------------------------
               - name: contentVideo
                 label: "Content + Video"
@@ -865,11 +865,19 @@ content:
                     fields:
                       - { name: badge, label: Eyebrow / Badge, type: string, required: false }
                       - { name: title, label: Title, type: string, required: false }
-                      - { name: description, label: Description, type: rich-text, required: false }
-                      - { name: video, label: Video URL, type: string, required: true, description: "MP4 path, e.g. /videos/host-partner/demo-loop.mp4" }
-                      - { name: poster, label: Poster Image URL, type: string, required: false }
-                      - { name: caption, label: Caption Under Video, type: string, required: false }
-                      - { name: loop, label: "Silent loop (no controls)", type: boolean, required: false, description: "On = plays muted on a loop like a GIF. Off = click-to-play player with sound." }
+                      - name: rows
+                        label: Rows (text + video)
+                        type: object
+                        list:
+                          collapsible:
+                            collapsed: true
+                            summary: "{index}. {fields.caption}"
+                        fields:
+                          - { name: description, label: Text, type: rich-text, required: false }
+                          - { name: caption, label: Heading Above Video, type: string, required: false }
+                          - { name: video, label: Video URL, type: string, required: true, description: "MP4 path, e.g. /videos/host-partner/demo-loop.mp4" }
+                          - { name: poster, label: Poster Image URL, type: string, required: false }
+                          - { name: loop, label: "Silent loop (no controls)", type: boolean, required: false, description: "On = plays muted on a loop like a GIF. Off = click-to-play player with sound." }
                       - name: background
                         label: Background
                         type: select

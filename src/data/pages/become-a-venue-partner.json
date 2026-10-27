@@ -70,11 +70,22 @@
       "discriminant": "contentVideo",
       "value": {
         "title": "How it Works",
-        "description": "<p>Join a network of hyper local indoor billboards where your community eats, shops, works out or plays. We will install a new 40-85″ TV or use an existing TV and that TV will earn you up to $9,000 in free marketing assets and advertising around town.</p><p>Be seen by locals to increase retention, frequency, word of mouth referrals and reach new people near your business.</p><p><strong>Concept</strong></p><p>Have your business and brand promoted inside of your location and on ten screens in our network of non-competitive host partners.</p><p>Free ad creation and updates, free install of a TV or use of an existing smart TV, the most play-time of anyone on your screen, and creation of a tight-knit business community.</p>",
-        "video": "/videos/host-partner/demo-loop.mp4",
-        "poster": "/videos/host-partner/demo-loop.webp",
-        "caption": "Content Example",
-        "loop": true
+        "rows": [
+          {
+            "description": "<p>Join a network of hyper local indoor billboards where your community eats, shops, works out or plays. We will install a new 40-85″ TV or use an existing TV and that TV will earn you up to $9,000 in free marketing assets and advertising around town.</p><p>Be seen by locals to increase retention, frequency, word of mouth referrals and reach new people near your business.</p>",
+            "caption": "Concept",
+            "video": "/videos/host-partner/host-locations.mp4",
+            "poster": "/videos/host-partner/host-locations.webp",
+            "loop": true
+          },
+          {
+            "description": "<p>Have your business and brand promoted inside of your location and on ten screens in our network of non-competitive host partners.</p><p>Free ad creation and updates, free install of a TV or use of an existing smart TV, the most play-time of anyone on your screen, and creation of a tight-knit business community.</p>",
+            "caption": "Content Example",
+            "video": "/videos/host-partner/demo-loop.mp4",
+            "poster": "/videos/host-partner/demo-loop.webp",
+            "loop": true
+          }
+        ]
       }
     },
     {

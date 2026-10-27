@@ -436,20 +436,19 @@ const mapLocations = (locs: any[] = []) =>
         );
 
       case "contentVideo":
-      case "ContentWithVideo":
-        if (!v.video) return null;
+      case "ContentWithVideo": {
+        // Either a `rows` list or a single text + video pair on the section itself.
+        const rows = (v.rows?.length ? v.rows : [v]).filter((r: any) => r.video);
+        if (rows.length === 0) return null;
         return (
           <ContentWithVideo
             eyebrow={v.badge || v.eyebrow}
             title={v.title}
-            description={v.description}
-            videoUrl={v.video}
-            poster={v.poster}
-            caption={v.caption}
-            loop={v.loop}
+            rows={rows}
             background={bg(v.background)}
           />
         );
+      }
 
       case "videoGallery":
       case "VideoGallery":

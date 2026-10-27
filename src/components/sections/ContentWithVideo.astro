@@ -1,28 +1,25 @@
 ---
-interface Props {
-  title: string;
-  description: string;
-  videoUrl: string;
+interface Row {
+  /** HTML text shown beside the video. */
+  description?: string;
+  video: string;
   /** Still frame shown before the video plays. */
   poster?: string;
-  /** Small label under the video (e.g. "Content Example"). */
+  /** Heading above the video (e.g. "Content Example"). */
   caption?: string;
   /** Play muted on a silent loop with no controls instead of a click-to-play player. */
   loop?: boolean;
+}
+
+interface Props {
+  title?: string;
   eyebrow?: string;
+  /** One text + video pair per row, stacked under the shared heading. */
+  rows: Row[];
   background?: "white" | "primary" | "primary-dark" | "light";
 }
 
-const {
-  title,
-  description,
-  videoUrl,
-  poster,
-  caption,
-  loop = false,
-  eyebrow,
-  background = "white",
-} = Astro.props;
+const { title, eyebrow, rows = [], background = "white" } = Astro.props;
 
 const bgClasses = {
   white: "bg-neutral",
@@ -48,92 +45,91 @@ const descriptionColorClasses = {
 
 <section class={`py-16 md:py-24 ${bgClasses[background]} fade-in-section`}>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-      <!-- Content Column -->
-      <div class="lg:order-1">
-        <div class="space-y-6">
-          {
-            eyebrow && (
-              <div
-                class={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${background === "primary" || background === "primary-dark" ? "bg-neutral/10 border border-neutral/20" : "bg-primary/5 border border-primary-light/30"}`}
+    <!-- Header -->
+    {
+      (eyebrow || title) && (
+        <div class="space-y-6 mb-10 md:mb-12">
+          {eyebrow && (
+            <div
+              class={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${background === "primary" || background === "primary-dark" ? "bg-neutral/10 border border-neutral/20" : "bg-primary/5 border border-primary-light/30"}`}
+            >
+              <span
+                class={`w-2 h-2 rounded-full ${background === "primary" || background === "primary-dark" ? "bg-neutral" : "bg-primary-light"}`}
+              />
+              <span
+                class={`section-eyebrow ${background === "primary" || background === "primary-dark" ? "text-neutral" : "text-primary"}`}
               >
-                <span
-                  class={`w-2 h-2 rounded-full ${background === "primary" || background === "primary-dark" ? "bg-neutral" : "bg-primary-light"}`}
-                />
-                <span
-                  class={`section-eyebrow ${background === "primary" || background === "primary-dark" ? "text-neutral" : "text-primary"}`}
-                >
-                  {eyebrow}
-                </span>
-              </div>
-            )
-          }
+                {eyebrow}
+              </span>
+            </div>
+          )}
 
-          <h2 class={`section-title ${textColorClasses[background]}`}>
-            {title}
-          </h2>
+          {title && <h2 class={`section-title ${textColorClasses[background]}`}>{title}</h2>}
 
           <!-- Accent line -->
           <div
             class={`w-20 h-1 ${background === "primary" || background === "primary-dark" ? "bg-neutral/30" : "bg-primary-light"}`}
-          >
-          </div>
-
-          <div
-            class={`section-description space-y-4 ${descriptionColorClasses[background]}`}
-            set:html={description}
           />
         </div>
-      </div>
+      )
+    }
 
-      <!-- Video Column -->
-      <div class="lg:order-2">
-        <div class="relative group">
-          <!-- Decorative background -->
-          <div
-            class={`absolute -inset-4 rounded-3xl ${background === "primary" || background === "primary-dark" ? "bg-neutral/5" : "bg-primary/5"}`}
-          >
-          </div>
-
-          <!-- Video container -->
-          <div
-            class="relative rounded-2xl overflow-hidden shadow-[0_20px_60px_color-mix(in_srgb,var(--color-primary-darker)_30%,transparent)] bg-primary-darker"
-          >
-            {loop ? (
-              <video
-                class="loop-video w-full h-auto"
-                src={videoUrl}
-                poster={poster}
-                autoplay
-                muted
-                loop
-                playsinline
-                preload="metadata"
-                aria-label={caption || title}
+    <div class="space-y-16 lg:space-y-20">
+      {
+        rows.map((row) => (
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <!-- Content Column -->
+            {row.description && (
+              <div
+                class={`section-description space-y-4 ${descriptionColorClasses[background]}`}
+                set:html={row.description}
               />
-            ) : (
-              <video controls class="w-full h-auto" preload="metadata" poster={poster}>
-                <source src={videoUrl} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
             )}
-          </div>
 
-          {caption && (
-            <p
-              class={`relative mt-4 text-center text-sm font-semibold uppercase tracking-wider ${background === "primary" || background === "primary-dark" ? "text-neutral/80" : "text-primary"}`}
-            >
-              {caption}
-            </p>
-          )}
+            <!-- Video Column -->
+            <div class:list={[!row.description && "lg:col-span-2"]}>
+              {row.caption && (
+                <h3 class={`text-xl md:text-2xl font-bold mb-5 ${textColorClasses[background]}`}>
+                  {row.caption}
+                </h3>
+              )}
+              <div class="relative group">
+                <!-- Decorative background -->
+                <div
+                  class={`absolute -inset-4 rounded-3xl ${background === "primary" || background === "primary-dark" ? "bg-neutral/5" : "bg-primary/5"}`}
+                />
 
-          <!-- Corner accent -->
-          <div
-            class={`absolute -bottom-6 -right-6 w-32 h-32 rounded-full ${background === "primary" || background === "primary-dark" ? "bg-neutral/5" : "bg-primary-light/20"} blur-2xl`}
-          >
+                <!-- Video container -->
+                <div class="relative rounded-2xl overflow-hidden shadow-[0_20px_60px_color-mix(in_srgb,var(--color-primary-darker)_30%,transparent)] bg-primary-darker">
+                  {row.loop ? (
+                    <video
+                      class="loop-video w-full h-auto"
+                      src={row.video}
+                      poster={row.poster}
+                      autoplay
+                      muted
+                      loop
+                      playsinline
+                      preload="metadata"
+                      aria-label={row.caption || title}
+                    />
+                  ) : (
+                    <video controls class="w-full h-auto" preload="metadata" poster={row.poster}>
+                      <source src={row.video} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  )}
+                </div>
+
+                <!-- Corner accent -->
+                <div
+                  class={`absolute -bottom-6 -right-6 w-32 h-32 rounded-full ${background === "primary" || background === "primary-dark" ? "bg-neutral/5" : "bg-primary-light/20"} blur-2xl -z-10`}
+                />
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        ))
+      }
     </div>
   </div>
 </section>
