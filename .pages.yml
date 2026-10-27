@@ -149,6 +149,10 @@ components:
         - dollar
         - circledot
         - refresh
+        - click
+        - ad
+        - focus-2
+        - headphones
 
 content:
   # ===========================================================================
@@ -246,6 +250,26 @@ content:
       - { name: trustIndicators, label: Trust Indicators, type: string, list: true, required: false }
       - { name: dismissText, label: Dismiss Link Text, type: string, required: false }
       - { name: delay, label: "Auto-open delay (seconds)", type: number, default: 5, description: "Seconds before the popup auto-opens on desktop. 0 disables auto-open (the floating button still works)." }
+
+  - name: reviews
+    label: Google Reviews
+    type: file
+    path: src/content/settings/reviews.json
+    format: json
+    description: "Shared review list shown by every page's Reviews section."
+    fields:
+      - { name: source, label: "Source (shown as 'Posted on ...')", type: string, required: false, default: Google }
+      - name: reviews
+        label: Reviews
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{index}. {fields.name}"
+        fields:
+          - { name: name, label: Reviewer Name, type: string, required: true }
+          - { name: rating, label: "Rating (1-5)", type: number, required: false, default: 5 }
+          - { name: text, label: Review Text, type: text, required: true }
 
   - name: navbar
     label: Navbar
@@ -741,7 +765,10 @@ content:
                     type: object
                     fields:
                       - { name: title, label: Title, type: string, required: false }
+                      - { name: subtitle, label: Subtitle, type: string, required: false, description: "Leave the field out to show the default subtitle; set it empty to hide it." }
                       - { name: description, label: Description, type: rich-text, required: false }
+                      - { name: buttonText, label: Button Text, type: string, required: false }
+                      - { name: buttonHref, label: Button Link, type: string, required: false }
                       - name: networks
                         label: Networks
                         type: object
@@ -762,6 +789,47 @@ content:
                             fields:
                               - { name: name, label: Name, type: string, required: false }
                               - { name: logo, label: Logo, type: image, required: false }
+                              - { name: href, label: "Link (opens in new tab)", type: string, required: false }
+                      - { name: order, label: Order, type: number, required: false }
+              # -------------------------------------------------------------
+              # team — TeamSection.astro (grid of team member cards)
+              # -------------------------------------------------------------
+              - name: team
+                label: "Team"
+                fields:
+                  - name: value
+                    label: " "
+                    type: object
+                    fields:
+                      - { name: badge, label: Eyebrow / Badge, type: string, required: false }
+                      - { name: title, label: Title, type: string, required: false }
+                      - { name: description, label: Description, type: rich-text, required: false }
+                      - name: members
+                        label: Team Members
+                        type: object
+                        list:
+                          collapsible:
+                            collapsed: true
+                            summary: "{index}. {fields.name}"
+                        fields:
+                          - { name: name, label: Name, type: string, required: true }
+                          - { name: role, label: Role, type: string, required: false }
+                          - { name: image, label: Photo, type: image, required: false }
+                          - { name: bio, label: Bio, type: text, required: false }
+                      - { name: order, label: Order, type: number, required: false }
+              # -------------------------------------------------------------
+              # reviews — ReviewsSection.astro (reviews from the Google Reviews singleton)
+              # -------------------------------------------------------------
+              - name: reviews
+                label: "Google Reviews"
+                fields:
+                  - name: value
+                    label: " "
+                    type: object
+                    fields:
+                      - { name: badge, label: Eyebrow / Badge, type: string, required: false }
+                      - { name: title, label: Title, type: string, required: false }
+                      - { name: description, label: Description, type: rich-text, required: false }
                       - { name: order, label: Order, type: number, required: false }
               # -------------------------------------------------------------
               # contact — FormSection.astro (contact form + contact details)

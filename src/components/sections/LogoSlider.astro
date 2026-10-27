@@ -2,6 +2,7 @@
 interface Brand {
   name: string;
   logo: string;
+  href?: string;
 }
 
 interface Props {
@@ -75,14 +76,30 @@ const sliderId = `slider-${Math.random().toString(36).substr(2, 9)}`;
               class="slider-item flex-shrink-0 px-6 flex items-center justify-center"
               style={`width: ${100 / itemsPerView}%`}
             >
-              <div class="transition-transform duration-300 hover:scale-110">
-                <img
-                  src={brand.logo}
-                  alt={brand.name}
-                  class="h-16 w-auto object-contain mx-auto"
-                  loading="lazy"
-                />
-              </div>
+              {brand.href ? (
+                <a
+                  href={brand.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block transition-transform duration-300 hover:scale-110"
+                >
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    class="h-16 w-auto object-contain mx-auto"
+                    loading="lazy"
+                  />
+                </a>
+              ) : (
+                <div class="transition-transform duration-300 hover:scale-110">
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    class="h-16 w-auto object-contain mx-auto"
+                    loading="lazy"
+                  />
+                </div>
+              )}
             </div>
           ))
         }

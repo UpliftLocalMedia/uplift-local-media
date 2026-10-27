@@ -130,79 +130,99 @@
             "brands": [
               {
                 "name": "Union Gospel Mission",
-                "logo": "/images/non-profits/union-gospel-mission.webp"
+                "logo": "/images/non-profits/union-gospel-mission.webp",
+                "href": "https://ugmsiouxfalls.com/"
               },
               {
                 "name": "Tre Ministries",
-                "logo": "/images/non-profits/tre-ministries.webp"
+                "logo": "/images/non-profits/tre-ministries.webp",
+                "href": "https://www.treministries.org/"
               },
               {
                 "name": "The Compass Center",
-                "logo": "/images/non-profits/the-compass-center.webp"
+                "logo": "/images/non-profits/the-compass-center.webp",
+                "href": "https://thecompasscenter.org/"
               },
               {
                 "name": "TeamMates",
-                "logo": "/images/non-profits/teammates.webp"
+                "logo": "/images/non-profits/teammates.webp",
+                "href": "https://siouxfallsteammates.org/"
               },
               {
                 "name": "Rare by Design",
-                "logo": "/images/non-profits/rare-by-design.webp"
+                "logo": "/images/non-profits/rare-by-design.webp",
+                "href": "https://www.rarebydesign.org/"
               },
               {
                 "name": "One Leg B4 The Other",
-                "logo": "/images/non-profits/one-leg-b4-the-other.webp"
+                "logo": "/images/non-profits/one-leg-b4-the-other.webp",
+                "href": "https://onelegb4theother.org/"
               },
               {
                 "name": "Interlakes Community Action Partnership",
-                "logo": "/images/non-profits/interlakes-community-action-partnership.webp"
+                "logo": "/images/non-profits/interlakes-community-action-partnership.webp",
+                "href": "https://www.interlakescap.com/"
               },
               {
                 "name": "Hurdle Life Coach Foundation",
-                "logo": "/images/non-profits/hurdle-life-coach-foundation.webp"
+                "logo": "/images/non-profits/hurdle-life-coach-foundation.webp",
+                "href": "https://www.hurdlelifecoachfoundation.com/"
               },
               {
                 "name": "Helpline Center",
-                "logo": "/images/non-profits/helpline-center.webp"
+                "logo": "/images/non-profits/helpline-center.webp",
+                "href": "https://www.helplinecenter.org/"
               },
               {
                 "name": "Habitat for Humanity",
-                "logo": "/images/non-profits/habitat-for-humanity.webp"
+                "logo": "/images/non-profits/habitat-for-humanity.webp",
+                "href": "https://siouxfallshabitat.org/"
               },
               {
                 "name": "Grateful4",
-                "logo": "/images/non-profits/grateful4.webp"
+                "logo": "/images/non-profits/grateful4.webp",
+                "href": "https://grateful4u.org/"
               },
               {
                 "name": "Girl Scouts Dakota Horizons",
-                "logo": "/images/non-profits/girl-scouts.webp"
+                "logo": "/images/non-profits/girl-scouts.webp",
+                "href": "https://www.gsdakotahorizons.org/en/discover/about.html"
               },
               {
                 "name": "Fortitude Ministries",
-                "logo": "/images/non-profits/fortitude-ministries.webp"
+                "logo": "/images/non-profits/fortitude-ministries.webp",
+                "href": "https://www.fortitudethepodcast.com/2009891/about"
               },
               {
                 "name": "DakotAbilities",
-                "logo": "/images/non-profits/dakotabilities.webp"
+                "logo": "/images/non-profits/dakotabilities.webp",
+                "href": "https://www.dakotabilities.org/"
               },
               {
                 "name": "Corporate Cares",
-                "logo": "/images/non-profits/corporate-cares.webp"
+                "logo": "/images/non-profits/corporate-cares.webp",
+                "href": "https://www.corporatecare.org/"
               },
               {
                 "name": "Chrysalis Collective",
-                "logo": "/images/non-profits/chrysalis-collective.webp"
+                "logo": "/images/non-profits/chrysalis-collective.webp",
+                "href": "https://chrysaliscollective.mypixieset.com/"
               },
               {
                 "name": "Call To Freedom",
-                "logo": "/images/non-profits/call-to-freedom.webp"
+                "logo": "/images/non-profits/call-to-freedom.webp",
+                "href": "https://calltofreedom.org/"
               },
               {
                 "name": "Bridging the Gap",
-                "logo": "/images/non-profits/btg-logo.webp"
+                "logo": "/images/non-profits/btg-logo.webp",
+                "href": "https://bridgingthegapsd.org/"
               }
             ]
           }
-        ]
+        ],
+        "buttonText": "Contact Us To Have Your Non-Profit Featured",
+        "buttonHref": "/contact-us"
       }
     },
     {
@@ -229,6 +249,13 @@
         "description": "Whether you're looking for <strong><a href='/indoor-billboards/screen-advertising' class='content-link'>screen ads</a></strong>, a new <strong><a href='/solutions/foundational/website-design' class='content-link'>website</a></strong>, or a complete <strong>digital marketing</strong> strategy in <strong>{city}</strong>, we're here to help. Contact us today for a free consultation and let's discuss how we can grow your business.",
         "buttonText": "Schedule Free Consultation",
         "buttonHref": "/contact-us"
+      }
+    },
+    {
+      "discriminant": "reviews",
+      "value": {
+        "badge": "Google Reviews",
+        "title": "What Our Clients Say"
       }
     },
     {

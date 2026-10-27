@@ -109,6 +109,13 @@
       }
     },
     {
+      "discriminant": "reviews",
+      "value": {
+        "badge": "Google Reviews",
+        "title": "What Our Clients Say"
+      }
+    },
+    {
       "discriminant": "locations",
       "value": {
         "badge": "Service Areas",

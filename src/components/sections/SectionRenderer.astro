@@ -25,6 +25,8 @@ import FAQs from "~/components/sections/FAQs.astro";
 import MapSection from "~/components/sections/MapSection.astro";
 import FormSection from "~/components/sections/FormSection.astro";
 import NetworksSection from "~/components/sections/NetworksSection.astro";
+import TeamSection from "~/components/sections/TeamSection.astro";
+import ReviewsSection from "~/components/sections/ReviewsSection.astro";
 
 interface RawSection {
   discriminant?: string;
@@ -411,6 +413,33 @@ const mapLocations = (locs: any[] = []) =>
             subtitle={"subtitle" in v ? v.subtitle : undefined}
             description={v.description}
             networks={v.networks}
+            ctaText={v.buttonText || v.ctaText}
+            ctaLink={v.buttonHref || v.ctaLink}
+          />
+        );
+
+      case "team":
+      case "TeamSection":
+        if (!v.members || v.members.length === 0) return null;
+        return (
+          <TeamSection
+            eyebrow={v.badge || v.eyebrow}
+            title={v.title}
+            description={v.description}
+            members={v.members}
+          />
+        );
+
+      // Reviews come from src/content/settings/reviews.json unless the
+      // section supplies its own list.
+      case "reviews":
+      case "ReviewsSection":
+        return (
+          <ReviewsSection
+            eyebrow={v.badge || v.eyebrow}
+            title={v.title}
+            description={v.description}
+            reviews={v.reviews}
           />
         );
 

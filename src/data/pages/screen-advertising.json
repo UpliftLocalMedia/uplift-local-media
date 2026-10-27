@@ -146,6 +146,13 @@
       }
     },
     {
+      "discriminant": "reviews",
+      "value": {
+        "badge": "Google Reviews",
+        "title": "What Our Clients Say"
+      }
+    },
+    {
       "discriminant": "faq",
       "value": {
         "title": "Screen Network Common Questions",

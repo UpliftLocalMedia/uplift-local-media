@@ -121,6 +121,13 @@
       }
     },
     {
+      "discriminant": "reviews",
+      "value": {
+        "badge": "Google Reviews",
+        "title": "What Our Clients Say"
+      }
+    },
+    {
       "discriminant": "faq",
       "value": {
         "title": "Venue Partner Common Questions",

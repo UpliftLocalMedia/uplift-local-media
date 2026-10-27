@@ -1,0 +1,106 @@
+---
+interface Member {
+  name: string;
+  role?: string;
+  image?: string;
+  bio?: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  members?: Member[];
+}
+
+const { eyebrow, title, description, members = [] } = Astro.props;
+---
+
+<section class="py-16 md:py-24 bg-neutral relative overflow-hidden fade-in-section">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Header -->
+    {
+      (eyebrow || title || description) && (
+        <div class="text-center mb-12 md:mb-16">
+          {eyebrow && (
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary-light/30 mb-6">
+              <span class="text-sm font-bold uppercase tracking-wider text-primary">
+                {eyebrow}
+              </span>
+            </div>
+          )}
+          {title && <h2 class="section-title text-primary mb-4">{title}</h2>}
+          {description && (
+            <p class="section-description text-primary-dark" set:html={description} />
+          )}
+        </div>
+      )
+    }
+
+    <!-- Team Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      {
+        members.map((member) => (
+          <article class="team-card flex flex-col bg-neutral rounded-2xl border-2 border-primary-light/20 hover:border-primary-light hover:shadow-lg transition-all duration-300 overflow-hidden">
+            {member.image && (
+              <img
+                src={member.image}
+                alt={member.name}
+                width="600"
+                height="600"
+                loading="lazy"
+                class="w-full aspect-square object-cover object-top"
+              />
+            )}
+            <div class="flex flex-col flex-1 p-5 sm:p-6">
+              <h3 class="text-lg font-bold text-primary-dark leading-snug">{member.name}</h3>
+              {member.role && (
+                <p class="text-sm font-semibold uppercase tracking-wider text-primary mt-1">
+                  {member.role}
+                </p>
+              )}
+              {member.bio && (
+                <>
+                  <p class="team-bio line-clamp-4 text-sm text-primary-dark/70 leading-relaxed mt-4">
+                    {member.bio}
+                  </p>
+                  <button
+                    type="button"
+                    class="team-toggle self-start mt-3 text-sm font-semibold text-primary hover:text-primary-dark transition"
+                    aria-expanded="false"
+                  >
+                    Read more
+                  </button>
+                </>
+              )}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  function initTeamToggles() {
+    document.querySelectorAll<HTMLButtonElement>(".team-toggle").forEach((btn) => {
+      if (btn.dataset.bound) return;
+      btn.dataset.bound = "true";
+      const bio = btn.previousElementSibling as HTMLElement | null;
+      if (!bio) return;
+      // Hide the toggle when the bio already fits within the clamp.
+      if (bio.scrollHeight <= bio.clientHeight + 1) {
+        btn.hidden = true;
+        return;
+      }
+      btn.addEventListener("click", () => {
+        const expanded = bio.classList.toggle("line-clamp-4") === false;
+        btn.setAttribute("aria-expanded", String(expanded));
+        btn.textContent = expanded ? "Read less" : "Read more";
+      });
+    });
+  }
+
+  initTeamToggles();
+  document.addEventListener("astro:page-load", initTeamToggles);
+</script>

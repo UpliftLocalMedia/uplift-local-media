@@ -1,11 +1,13 @@
 ---
 import LogoSlider from "./LogoSlider.astro";
+import Button from "~/components/ui/Button.astro";
 
 interface Network {
   title: string;
   brands: Array<{
     name: string;
     logo: string;
+    href?: string;
   }>;
 }
 
@@ -14,9 +16,13 @@ interface Props {
   subtitle?: string;
   description?: string;
   networks?: Network[];
+  ctaText?: string;
+  ctaLink?: string;
 }
 
 const {
+  ctaText,
+  ctaLink,
   title = "Our Network Partners",
   subtitle = "Connected to the platforms that matter",
   description = "We work with leading networks to deliver your message to the right audience at the right time.",
@@ -110,5 +116,15 @@ const {
         ))
       }
     </div>
+
+    {
+      ctaText && ctaLink && (
+        <div class="text-center mt-12">
+          <Button href={ctaLink} size="lg">
+            {ctaText}
+          </Button>
+        </div>
+      )
+    }
   </div>
 </section>
