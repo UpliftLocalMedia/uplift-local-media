@@ -88,6 +88,10 @@ footer {
    scroll container and break position: sticky for the header. */
 html {
   overflow-x: hidden;
+  /* clip (where supported) blocks sideways scroll without turning the page
+     into a scroll container, which on mobile can let the sticky header
+     slide partly out of view mid-scroll. */
+  overflow-x: clip;
   max-width: 100%;
 }
 
