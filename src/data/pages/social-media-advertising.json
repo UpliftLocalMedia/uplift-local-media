@@ -70,31 +70,23 @@
       "discriminant": "valueCards",
       "value": {
         "title": "Steps On Social Media Ads",
-        "variant": "cards",
+        "variant": "timeline",
         "cards": [
           {
-            "icon": "users",
-            "title": "Step 1<br>On-Boarding Meeting",
-            "description": "During the onboarding phase, we'll work closely with you to understand your brand, goals, and target audience, laying the foundation for a successful social media ad strategy.",
-            "image": "/images/on-boarding.avif"
+            "title": "On-Boarding Meeting",
+            "description": "During the onboarding phase, we'll work closely with you to understand your brand, goals, and target audience, laying the foundation for a successful social media ad strategy."
           },
           {
-            "icon": "palette",
-            "title": "Step 2<br>Insights & Creative Development",
-            "description": "As our creative team produces your ad, your strategist gathers deep insights into your industry landscape, your target audience, and emerging trends.",
-            "image": "/images/content-development.avif"
+            "title": "Insights & Creative Development",
+            "description": "As our creative team produces your ad, your strategist gathers deep insights into your industry landscape, your target audience, and emerging trends."
           },
           {
-            "icon": "rocket",
-            "title": "Step 3<br>Execution",
-            "description": "Once you've approved your ad, we will begin pushing out your campaign. During the lifetime of your campaign, we will continuously optimize your campaign to maximize impact and drive leads.",
-            "image": "/images/execution.jpeg"
+            "title": "Execution",
+            "description": "Once you've approved your ad, we will begin pushing out your campaign. During the lifetime of your campaign, we will continuously optimize your campaign to maximize impact and drive leads."
           },
           {
-            "icon": "report-analytics",
-            "title": "Step 4<br>Reporting",
-            "description": "At the end of your campaign, we will provide you with a thorough report of the campaign's performance, delivering comprehensive insights and metrics for tracking progress and refining future strategies.",
-            "image": "/images/reporting.avif"
+            "title": "Reporting",
+            "description": "At the end of your campaign, we will provide you with a thorough report of the campaign's performance, delivering comprehensive insights and metrics for tracking progress and refining future strategies."
           }
         ]
       }

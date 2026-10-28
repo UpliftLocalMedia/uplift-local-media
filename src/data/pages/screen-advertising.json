@@ -106,31 +106,23 @@
       "discriminant": "valueCards",
       "value": {
         "title": "Process of Joining Our Screen Network",
-        "variant": "cards",
+        "variant": "timeline",
         "cards": [
           {
-            "icon": "users",
-            "title": "Step 1<br>Consultation",
-            "description": "Before we begin creating your Ad we'll take time to get to know your brand, messaging, and any important images you would like us to include.",
-            "image": "/images/free-consultation.avif"
+            "title": "Consultation",
+            "description": "Before we begin creating your Ad we'll take time to get to know your brand, messaging, and any important images you would like us to include."
           },
           {
-            "icon": "palette",
-            "title": "Step 2<br>Ad Creation",
-            "description": "Once we have gathered your assets, we'll get to work developing your ad. Once we've completed your full-motion ad, we'll send it back to you for approval and refinement.",
-            "image": "/images/ad-creation.avif"
+            "title": "Ad Creation",
+            "description": "Once we have gathered your assets, we'll get to work developing your ad. Once we've completed your full-motion ad, we'll send it back to you for approval and refinement."
           },
           {
-            "icon": "rocket",
-            "title": "Step 3<br>Campaign Launch",
-            "description": "After you've approved your ad, we'll deploy your ad across our <strong><a href='/indoor-billboards/locations' class='content-link'>network locations</a></strong> that are most relevant to your target audience.",
-            "image": "/images/campaign-launch.avif"
+            "title": "Campaign Launch",
+            "description": "After you've approved your ad, we'll deploy your ad across our <strong><a href='/indoor-billboards/locations' class='content-link'>network locations</a></strong> that are most relevant to your target audience."
           },
           {
-            "icon": "tools",
-            "title": "Step 4<br>Maintenance + Updates",
-            "description": "Throughout the lifetime of your contract, we'll be in regular contact to ensure that your ad is up-to-date and engaging to your audience.",
-            "image": "/images/maintenance.avif"
+            "title": "Maintenance + Updates",
+            "description": "Throughout the lifetime of your contract, we'll be in regular contact to ensure that your ad is up-to-date and engaging to your audience."
           }
         ]
       }

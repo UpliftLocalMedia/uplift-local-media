@@ -680,9 +680,9 @@ content:
                         label: Variant
                         type: select
                         required: false
-                        description: "overlay = image-overlay carousel; cards = static grid; tiles = image tile grid with title overlay."
+                        description: "overlay = image-overlay carousel; cards = static grid; tiles = image tile grid with title overlay; timeline = numbered steps on a vertical line (no images, numbers added automatically)."
                         options:
-                          values: [overlay, cards, tiles]
+                          values: [overlay, cards, tiles, timeline]
                       - name: cards
                         label: Cards
                         type: object

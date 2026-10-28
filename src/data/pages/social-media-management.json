@@ -71,31 +71,23 @@
       "value": {
         "title": "Steps on Social Media Management",
         "description": "A clear four-step workflow to launch, manage, and continually optimize your social media program.",
-        "variant": "cards",
+        "variant": "timeline",
         "cards": [
           {
-            "icon": "phone",
-            "title": "Step 1<br>ON-BOARDING",
-            "description": "During this initial step, we'll meet to gather essential information about your brand, goals, and audience.",
-            "image": "/images/on-boarding-media.avif"
+            "title": "ON-BOARDING",
+            "description": "During this initial step, we'll meet to gather essential information about your brand, goals, and audience."
           },
           {
-            "icon": "search",
-            "title": "Step 2<br>RESEARCH + STRATEGY",
-            "description": "In this phase, we'll dive into research about your audience and competitors to craft a strategy that aligns with your brand identity and objectives.",
-            "image": "/images/brand-image.avif"
+            "title": "RESEARCH + STRATEGY",
+            "description": "In this phase, we'll dive into research about your audience and competitors to craft a strategy that aligns with your brand identity and objectives."
           },
           {
-            "icon": "clipboard",
-            "title": "Step 3<br>CONTENT DEVELOPMENT",
-            "description": "We'll develop creative content for the upcoming month as we translate our strategy into engaging posts, graphics, and captions that align with your goals.",
-            "image": "/images/content-development.avif"
+            "title": "CONTENT DEVELOPMENT",
+            "description": "We'll develop creative content for the upcoming month as we translate our strategy into engaging posts, graphics, and captions that align with your goals."
           },
           {
-            "icon": "report-analytics",
-            "title": "Step 4<br>REPORT AND OPTIMIZATION",
-            "description": "As we progress, we'll have regular performance reports detailing key metrics and insights for continuous optimization.",
-            "image": "/images/report-optimization.avif"
+            "title": "REPORT AND OPTIMIZATION",
+            "description": "As we progress, we'll have regular performance reports detailing key metrics and insights for continuous optimization."
           }
         ]
       }

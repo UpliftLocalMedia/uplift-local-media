@@ -30,6 +30,7 @@ import ReviewsSection from "~/components/sections/ReviewsSection.astro";
 import ContentWithVideo from "~/components/sections/ContentWithVideo.astro";
 import VideoGallery from "~/components/sections/VideoGallery.astro";
 import VenueCards from "~/components/sections/VenueCards.astro";
+import ProcessTimeline from "~/components/sections/ProcessTimeline.astro";
 import { venueLocations, venues } from "~/lib/venues";
 
 interface RawSection {
@@ -276,6 +277,19 @@ const mapLocations = (locs: any[] = []) =>
         if (cards.length === 0) return null;
         if (v.variant === "tiles") {
           return <ImageTiles title={v.title} description={v.description} cards={cards} />;
+        }
+        // Numbered "how we work" steps on a vertical line that fills on scroll.
+        if (v.variant === "timeline") {
+          return (
+            <ProcessTimeline
+              eyebrow={v.badge || v.eyebrow}
+              title={v.title}
+              description={v.description}
+              steps={cards}
+              ctaText={v.buttonText || v.ctaText}
+              ctaLink={v.buttonHref || v.ctaLink}
+            />
+          );
         }
         // The "overlay" variant (image-overlay cards, e.g. "What Sets Us Apart")
         // is a carousel; the "cards" variant is a static process-step grid.

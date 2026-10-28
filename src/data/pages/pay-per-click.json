@@ -69,31 +69,23 @@
       "discriminant": "valueCards",
       "value": {
         "title": "Steps on PPC",
-        "variant": "cards",
+        "variant": "timeline",
         "cards": [
           {
-            "icon": "users",
-            "title": "Step 1<br>On-Boarding Meeting",
-            "description": "During our initial correspondence we'll discuss your goals, target audience, and brand. From there we'll begin building your strategy.",
-            "image": "/images/on-boarding.avif"
+            "title": "On-Boarding Meeting",
+            "description": "During our initial correspondence we'll discuss your goals, target audience, and brand. From there we'll begin building your strategy."
           },
           {
-            "icon": "search",
-            "title": "Step 2<br>Keyword Research",
-            "description": "We will conduct thorough keyword and audience research to ensure success of your PPC campaigns, ensuring that your ads are seen by the right audience at the right time.",
-            "image": "/images/keyword.avif"
+            "title": "Keyword Research",
+            "description": "We will conduct thorough keyword and audience research to ensure success of your PPC campaigns, ensuring that your ads are seen by the right audience at the right time."
           },
           {
-            "icon": "rocket",
-            "title": "Step 3<br>Implementation",
-            "description": "With careful implementation of the identified keywords and audience targeting strategies, we will optimize your PPC campaigns for maximum exposure.",
-            "image": "/images/implementation.avif"
+            "title": "Implementation",
+            "description": "With careful implementation of the identified keywords and audience targeting strategies, we will optimize your PPC campaigns for maximum exposure."
           },
           {
-            "icon": "report-analytics",
-            "title": "Step 4<br>Reporting",
-            "description": "We will provide transparent insights for your campaign performance, equipping you with valuable data and actionable strategies for continuous improvement.",
-            "image": "/images/reporting.avif"
+            "title": "Reporting",
+            "description": "We will provide transparent insights for your campaign performance, equipping you with valuable data and actionable strategies for continuous improvement."
           }
         ]
       }

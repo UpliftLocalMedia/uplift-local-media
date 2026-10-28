@@ -93,25 +93,19 @@
       "value": {
         "title": "How do I Become a Venue Partner?",
         "description": "Hosting an indoor digital billboard is easy! We'll take care of everything from the installation to the ad creation. It's as easy as 1-2-3",
-        "variant": "cards",
+        "variant": "timeline",
         "cards": [
           {
-            "icon": "phone",
-            "title": "Step 1<br>Contact Us",
-            "description": "Reach out to our team to express your interest in becoming a venue partner. We'll discuss your location, foot traffic, and how our indoor billboard network can benefit your business.",
-            "image": "/images/contact-us-man.avif"
+            "title": "Contact Us",
+            "description": "Reach out to our team to express your interest in becoming a venue partner. We'll discuss your location, foot traffic, and how our indoor billboard network can benefit your business."
           },
           {
-            "icon": "users",
-            "title": "Step 2<br>Setup a Free Consultation",
-            "description": "Schedule a complimentary consultation where we'll visit your venue, assess the best placement options, and explain all the benefits of joining our network including cross-promotion opportunities. See how other venues benefit from our <strong><a href='/indoor-billboards/screen-advertising' class='content-link'>screen advertising network</a></strong>.",
-            "image": "/images/free-consultation.avif"
+            "title": "Setup a Free Consultation",
+            "description": "Schedule a complimentary consultation where we'll visit your venue, assess the best placement options, and explain all the benefits of joining our network including cross-promotion opportunities. See how other venues benefit from our <strong><a href='/indoor-billboards/screen-advertising' class='content-link'>screen advertising network</a></strong>."
           },
           {
-            "icon": "calendar-check",
-            "title": "Step 3<br>Approve Your Ad and Installation Date",
-            "description": "Review and approve your custom venue ad design, then select a convenient installation date. Our professional team will handle all technical setup, and you'll be live on the network in no time.",
-            "image": "/images/installation-date.avif"
+            "title": "Approve Your Ad and Installation Date",
+            "description": "Review and approve your custom venue ad design, then select a convenient installation date. Our professional team will handle all technical setup, and you'll be live on the network in no time."
           }
         ]
       }

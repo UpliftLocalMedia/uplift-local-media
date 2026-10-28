@@ -72,31 +72,23 @@
       "value": {
         "title": "How Connected TV Advertising Works",
         "description": "From strategy to results, we handle everything to make your CTV campaign a success.",
-        "variant": "cards",
+        "variant": "timeline",
         "cards": [
           {
-            "icon": "sparkles",
             "title": "Strategy & Targeting",
-            "description": "We identify your ideal audience and create a targeting strategy to reach them across streaming platforms.",
-            "image": "/images/strategy.avif"
+            "description": "We identify your ideal audience and create a targeting strategy to reach them across streaming platforms."
           },
           {
-            "icon": "tv",
             "title": "Creative Development",
-            "description": "We produce high-quality video ads optimized for streaming platforms, or adapt your existing TV commercials.",
-            "image": "/images/creative-development.avif"
+            "description": "We produce high-quality video ads optimized for streaming platforms, or adapt your existing TV commercials."
           },
           {
-            "icon": "rocket",
             "title": "Campaign Launch",
-            "description": "Your ads go live across premium streaming networks, reaching your target audience during their favorite shows.",
-            "image": "/images/campaign-launch.avif"
+            "description": "Your ads go live across premium streaming networks, reaching your target audience during their favorite shows."
           },
           {
-            "icon": "settings",
             "title": "Tracking & Optimization",
-            "description": "We monitor performance, track results, and continuously optimize to maximize your exposure and campaign effectiveness.",
-            "image": "/images/tracking.avif"
+            "description": "We monitor performance, track results, and continuously optimize to maximize your exposure and campaign effectiveness."
           }
         ]
       }

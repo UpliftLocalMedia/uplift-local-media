@@ -71,31 +71,23 @@
       "discriminant": "valueCards",
       "value": {
         "title": "Steps to Setting Up Your Google Business Profile",
-        "variant": "cards",
+        "variant": "timeline",
         "cards": [
           {
-            "icon": "sparkles",
-            "title": "Step 1<br>On-Boarding",
-            "description": "We'll gather essential business information, claim and verify ownership of your listing across platforms.",
-            "image": "/images/on-boarding.avif"
+            "title": "On-Boarding",
+            "description": "We'll gather essential business information, claim and verify ownership of your listing across platforms."
           },
           {
-            "icon": "palette",
-            "title": "Step 2<br>Accessibility",
-            "description": "We'll ensure your Google Business Profile is visible, up-to-date, and accurately represents important business details such as address and hours of operation.",
-            "image": "/images/accessibility.avif"
+            "title": "Accessibility",
+            "description": "We'll ensure your Google Business Profile is visible, up-to-date, and accurately represents important business details such as address and hours of operation."
           },
           {
-            "icon": "rocket",
-            "title": "Step 3<br>Management",
-            "description": "We'll actively manage and post fresh content, offers, and updates to keep your listing active and engaging for customers.",
-            "image": "/images/management.avif"
+            "title": "Management",
+            "description": "We'll actively manage and post fresh content, offers, and updates to keep your listing active and engaging for customers."
           },
           {
-            "icon": "trending",
-            "title": "Step 4<br>Report Calls and Continued Optimization",
-            "description": "You'll receive regular reports on your profile's performance. We'll continually refine and update your listing based on data and algorithm changes.",
-            "image": "/images/report-calls.avif"
+            "title": "Report Calls and Continued Optimization",
+            "description": "You'll receive regular reports on your profile's performance. We'll continually refine and update your listing based on data and algorithm changes."
           }
         ]
       }

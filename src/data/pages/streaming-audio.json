@@ -72,31 +72,23 @@
       "value": {
         "title": "Our Streaming Audio Advertising Process",
         "description": "From strategy to launch, we handle every aspect of your audio campaign across streaming platforms.",
-        "variant": "cards",
+        "variant": "timeline",
         "cards": [
           {
-            "icon": "users",
             "title": "Strategy & Discovery",
-            "description": "We start with a comprehensive consultation to understand your business goals, target audience, budget, and key performance indicators. We'll identify the best streaming platforms and targeting strategies to reach your ideal customers effectively.",
-            "image": "/images/strategy.avif"
+            "description": "We start with a comprehensive consultation to understand your business goals, target audience, budget, and key performance indicators. We'll identify the best streaming platforms and targeting strategies to reach your ideal customers effectively."
           },
           {
-            "icon": "microphone",
             "title": "Script & Production",
-            "description": "Our creative team develops compelling audio scripts that capture attention and drive action. We handle professional voice talent selection, recording, sound design, and music licensing to create broadcast-quality audio ads that represent your brand perfectly.",
-            "image": "/images/script.avif"
+            "description": "Our creative team develops compelling audio scripts that capture attention and drive action. We handle professional voice talent selection, recording, sound design, and music licensing to create broadcast-quality audio ads that represent your brand perfectly."
           },
           {
-            "icon": "rocket",
             "title": "Campaign Launch",
-            "description": "After your approval, we launch your streaming audio ads across selected music streaming services and podcast networks. We configure advanced targeting parameters to ensure your ads reach the right listeners at optimal times for maximum engagement.",
-            "image": "/images/campaign-launch.avif"
+            "description": "After your approval, we launch your streaming audio ads across selected music streaming services and podcast networks. We configure advanced targeting parameters to ensure your ads reach the right listeners at optimal times for maximum engagement."
           },
           {
-            "icon": "chart-bar",
             "title": "Analytics & Optimization",
-            "description": "Receive detailed performance reports tracking impressions, completion rates, click-through rates, and conversions. We continuously optimize your campaigns based on real-time data, adjusting targeting, creative, and platform mix to maximize exposure and achieve your business objectives.",
-            "image": "/images/report-optimization.avif"
+            "description": "Receive detailed performance reports tracking impressions, completion rates, click-through rates, and conversions. We continuously optimize your campaigns based on real-time data, adjusting targeting, creative, and platform mix to maximize exposure and achieve your business objectives."
           }
         ]
       }

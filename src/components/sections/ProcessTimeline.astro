@@ -1,0 +1,219 @@
+---
+import Button from "../ui/Button.astro";
+
+interface Step {
+  title?: string;
+  description?: string;
+}
+
+interface Props {
+  title?: string;
+  eyebrow?: string;
+  description?: string;
+  steps: Step[];
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const { title, eyebrow, description, steps = [], ctaText, ctaLink } = Astro.props;
+---
+
+<section class="py-16 md:py-24 bg-neutral fade-in-section">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    {
+      (eyebrow || title || description) && (
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          {eyebrow && (
+            <div class="flex justify-center mb-4">
+              <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary-light/30">
+                <span class="w-2 h-2 rounded-full bg-primary-light" />
+                <span class="section-eyebrow text-primary">{eyebrow}</span>
+              </div>
+            </div>
+          )}
+          {title && <h2 class="section-title mb-6 text-primary">{title}</h2>}
+          {description && <p class="section-description text-primary-dark">{description}</p>}
+        </div>
+      )
+    }
+
+    <!--
+      Vertical line with numbered bubbles. The line fills and each bubble
+      lights up as the reader scrolls past it. Steps alternate sides on
+      desktop and stack to the right of the line on mobile.
+    -->
+    <div class="process-timeline relative max-w-5xl mx-auto" data-process-timeline>
+      <div class="process-track" aria-hidden="true">
+        <div class="process-fill"></div>
+      </div>
+
+      <ol class="space-y-10 md:space-y-14">
+        {
+          steps.map((step, index) => (
+            <li class:list={["process-step", index % 2 === 1 && "process-step--right"]}>
+              <div class="process-bubble" aria-hidden="true">
+                {index + 1}
+              </div>
+              <div class="process-card">
+                <p class="sr-only">Step {index + 1}</p>
+                {step.title && (
+                  <h3 class="text-xl md:text-2xl font-bold text-primary mb-3" set:html={step.title} />
+                )}
+                {step.description && (
+                  <p class="text-base text-primary-dark leading-relaxed" set:html={step.description} />
+                )}
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+
+    {
+      ctaText && ctaLink && (
+        <div class="text-center mt-14">
+          <Button href={ctaLink} size="lg">
+            {ctaText}
+          </Button>
+        </div>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  /* Mobile: line on the left, bubbles over it, cards to the right. */
+  .process-step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    column-gap: 1.25rem;
+    align-items: start;
+  }
+  .process-track {
+    position: absolute;
+    left: 1.5rem;
+    top: var(--track-top, 1.5rem);
+    height: var(--track-height, calc(100% - 3rem));
+    width: 4px;
+    transform: translateX(-50%);
+    border-radius: 9999px;
+    background: color-mix(in srgb, var(--color-primary-light) 25%, transparent);
+    overflow: hidden;
+  }
+  .process-fill {
+    width: 100%;
+    height: 100%;
+    background: var(--color-primary);
+    transform-origin: top;
+    transform: scaleY(var(--progress, 0));
+  }
+  .process-bubble {
+    position: relative;
+    z-index: 1;
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    border: 3px solid color-mix(in srgb, var(--color-primary-light) 45%, transparent);
+    background: var(--color-neutral);
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.125rem;
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+  }
+  .process-step.is-active .process-bubble {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-neutral);
+    transform: scale(1.1);
+  }
+  .process-card {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 2px solid color-mix(in srgb, var(--color-primary-light) 20%, transparent);
+    background: var(--color-neutral);
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  }
+  .process-step.is-active .process-card {
+    border-color: var(--color-primary-light);
+    box-shadow: 0 12px 32px color-mix(in srgb, var(--color-primary-darker) 10%, transparent);
+  }
+
+  /* Desktop: line down the middle, cards alternate sides. */
+  @media (min-width: 768px) {
+    .process-step {
+      grid-template-columns: 1fr 3.5rem 1fr;
+      column-gap: 2rem;
+    }
+    .process-track {
+      left: 50%;
+    }
+    .process-bubble {
+      grid-column: 2;
+      width: 3.5rem;
+      height: 3.5rem;
+      font-size: 1.25rem;
+    }
+    .process-card {
+      grid-column: 1;
+      text-align: right;
+    }
+    .process-step--right .process-card {
+      grid-column: 3;
+      text-align: left;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .process-bubble,
+    .process-card {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  // Fill the line and light up bubbles once they pass this point of the viewport.
+  const ACTIVATE_AT = 0.6;
+
+  function updateTimelines() {
+    const line = window.innerHeight * ACTIVATE_AT;
+    document.querySelectorAll<HTMLElement>("[data-process-timeline]").forEach((timeline) => {
+      const bubbles = [...timeline.querySelectorAll<HTMLElement>(".process-bubble")];
+      if (bubbles.length === 0) return;
+      const box = timeline.getBoundingClientRect();
+      const center = (el: HTMLElement) => {
+        const r = el.getBoundingClientRect();
+        return r.top + r.height / 2;
+      };
+      // Run the line from the first bubble's center to the last one's.
+      const first = center(bubbles[0]);
+      const last = center(bubbles[bubbles.length - 1]);
+      timeline.style.setProperty("--track-top", `${first - box.top}px`);
+      timeline.style.setProperty("--track-height", `${Math.max(last - first, 0)}px`);
+      const progress = last > first ? (line - first) / (last - first) : line >= first ? 1 : 0;
+      timeline.style.setProperty("--progress", String(Math.min(Math.max(progress, 0), 1)));
+      bubbles.forEach((bubble) => {
+        bubble.closest(".process-step")?.classList.toggle("is-active", center(bubble) <= line);
+      });
+    });
+  }
+
+  let frame = 0;
+  const schedule = () => {
+    if (!frame) frame = requestAnimationFrame(() => ((frame = 0), updateTimelines()));
+  };
+
+  // The document survives ClientRouter swaps, so attach the listeners once.
+  window.addEventListener("scroll", schedule, { passive: true });
+  window.addEventListener("resize", schedule);
+  document.addEventListener("astro:page-load", updateTimelines);
+</script>

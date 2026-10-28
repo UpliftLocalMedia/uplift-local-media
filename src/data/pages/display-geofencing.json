@@ -72,31 +72,23 @@
       "value": {
         "title": "Your Path to Powerful Branding and Awareness",
         "description": "From strategy to optimization, we handle everything to maximize your display advertising exposure.",
-        "variant": "cards",
+        "variant": "timeline",
         "cards": [
           {
-            "icon": "sparkles",
             "title": "Strategy",
-            "description": "We identify your target audience, define geographic zones, and create a targeting strategy to reach the right people at the right locations.",
-            "image": "/images/geofencing-strategy.avif"
+            "description": "We identify your target audience, define geographic zones, and create a targeting strategy to reach the right people at the right locations."
           },
           {
-            "icon": "rocket",
             "title": "Execution",
-            "description": "We design compelling display ads and launch your campaign across thousands of premium websites where your customers spend time online.",
-            "image": "/images/geofencing-execution.jpeg"
+            "description": "We design compelling display ads and launch your campaign across thousands of premium websites where your customers spend time online."
           },
           {
-            "icon": "trending",
             "title": "Measure",
-            "description": "Track impressions, clicks, website visits, and conversions with detailed reporting. See exactly how your campaign is performing.",
-            "image": "/images/geofencing-measure.jpeg"
+            "description": "Track impressions, clicks, website visits, and conversions with detailed reporting. See exactly how your campaign is performing."
           },
           {
-            "icon": "settings",
             "title": "Optimize",
-            "description": "We continuously analyze performance data and adjust targeting, creative, and bidding strategies to maximize your exposure.",
-            "image": "/images/geofencing-optimized.avif"
+            "description": "We continuously analyze performance data and adjust targeting, creative, and bidding strategies to maximize your exposure."
           }
         ]
       }

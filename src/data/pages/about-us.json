@@ -28,46 +28,6 @@
       }
     },
     {
-      "discriminant": "valueCards",
-      "value": {
-        "badge": "Why Choose Us",
-        "title": "What Sets Us Apart",
-        "variant": "overlay",
-        "cards": [
-          {
-            "icon": "mappin",
-            "title": "Experts in Local Marketing",
-            "description": "Our marketing strategies are finely tuned to reach your specific community. From <strong><a href='/indoor-billboards/screen-advertising' class='content-link'>indoor digital billboards</a></strong> to robust <strong><a href='/solutions' class='content-link'>digital campaigns</a></strong>, we ensure your brand connects with the people who matter most, those in your immediate vicinity who are most likely to become loyal customers.",
-            "image": "/images/local-marketing-experts.avif"
-          },
-          {
-            "icon": "users",
-            "title": "Community-Based Advertising",
-            "description": "We understand the value of community and tailor our campaigns to resonate with local values and interests. This approach not only boosts your brand's visibility but also fosters a strong, positive relationship with your audience. Explore our <strong><a href='/indoor-billboards/locations' class='content-link'>venue network</a></strong> across {city}.",
-            "image": "/images/community-advertising.avif"
-          },
-          {
-            "icon": "dollar",
-            "title": "Affordability",
-            "description": "We offer cost-effective marketing solutions tailored to your budget, providing exceptional value without compromising on quality or impact.",
-            "image": "/images/affordability.avif"
-          },
-          {
-            "icon": "sparkles",
-            "title": "Amazing Creative",
-            "description": "Our team excels at creating dynamic, engaging content that stands out. Whether it's eye-catching visuals or compelling messaging, we ensure your advertisements capture and retain the attention of your target audience. From <strong><a href='/solutions/foundational/social-media-management' class='content-link'>social media content</a></strong> to <strong><a href='/solutions/lead-gen/pay-per-click' class='content-link'>PPC campaigns</a></strong>, we deliver results.",
-            "image": "/images/amazing-creative.avif"
-          },
-          {
-            "icon": "award",
-            "title": "A Proven Track Record",
-            "description": "We have a history of successful campaigns that drive results. Our clients have seen significant increases in brand awareness, foot traffic, and customer engagement. Our proven strategies are designed to deliver measurable outcomes that contribute to your business growth.",
-            "image": "/images/track-record.avif"
-          }
-        ]
-      }
-    },
-    {
       "discriminant": "team",
       "value": {
         "title": "Meet The Uplift Local Media Team",

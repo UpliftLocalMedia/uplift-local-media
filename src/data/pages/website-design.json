@@ -72,31 +72,23 @@
       "value": {
         "title": "Website Design Process",
         "description": "Our proven process ensures your website is built right, on time, and ready to grow your business.",
-        "variant": "cards",
+        "variant": "timeline",
         "cards": [
           {
-            "icon": "sparkles",
-            "title": "Step 1<br>DISCOVERY & STRATEGY",
-            "description": "We start by understanding your business, goals, and target audience to create a strategic plan.",
-            "image": "/images/website-discovery.avif"
+            "title": "DISCOVERY & STRATEGY",
+            "description": "We start by understanding your business, goals, and target audience to create a strategic plan."
           },
           {
-            "icon": "palette",
-            "title": "Step 2<br>DESIGN & DEVELOPMENT",
-            "description": "Our team designs and builds your custom website with a focus on user experience and conversion.",
-            "image": "/images/website-development.avif"
+            "title": "DESIGN & DEVELOPMENT",
+            "description": "Our team designs and builds your custom website with a focus on user experience and conversion."
           },
           {
-            "icon": "rocket",
-            "title": "Step 3<br>TESTING & LAUNCH",
-            "description": "We thoroughly test everything before launch to ensure your site works flawlessly across all devices.",
-            "image": "/images/website-testing.jpeg"
+            "title": "TESTING & LAUNCH",
+            "description": "We thoroughly test everything before launch to ensure your site works flawlessly across all devices."
           },
           {
-            "icon": "trending",
-            "title": "Step 4<br>SUPPORT & GROWTH",
-            "description": "After launch, we provide ongoing support, updates, and optimization to keep your site performing at its best.",
-            "image": "/images/website-support.jpeg"
+            "title": "SUPPORT & GROWTH",
+            "description": "After launch, we provide ongoing support, updates, and optimization to keep your site performing at its best."
           }
         ]
       }
