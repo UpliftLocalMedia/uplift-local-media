@@ -187,9 +187,36 @@ const source = reviewsData.source || "Google";
         prev.disabled = track.scrollLeft <= 0;
         next.disabled = track.scrollLeft >= max;
       };
-      // Scroll one "page" of visible cards at a time.
-      prev.addEventListener("click", () => track.scrollBy({ left: -track.clientWidth }));
-      next.addEventListener("click", () => track.scrollBy({ left: track.clientWidth }));
+      // Scroll one "page" of visible cards at a time, landing exactly on a
+      // card edge rather than relying on scroll-snap to correct the gap
+      // (some browsers don't re-snap after a programmatic smooth scroll).
+      const cards = [...track.querySelectorAll<HTMLElement>(".review-card")];
+      let target: number | null = null; // card index we're animating to
+      const step = () =>
+        cards.length > 1
+          ? cards[1].getBoundingClientRect().left - cards[0].getBoundingClientRect().left
+          : track.clientWidth;
+      const go = (direction: 1 | -1) => {
+        const size = step();
+        const perPage = Math.max(1, Math.round((track.clientWidth + (size - cards[0].offsetWidth)) / size));
+        const lastStart = Math.max(0, cards.length - perPage);
+        // Base quick repeat clicks on the pending target, not a mid-animation position.
+        const current = target ?? Math.round(track.scrollLeft / size);
+        target = Math.min(Math.max(current + direction * perPage, 0), lastStart);
+        track.scrollTo({ left: target * size });
+      };
+      prev.addEventListener("click", () => go(-1));
+      next.addEventListener("click", () => go(1));
+      let settle = 0;
+      track.addEventListener(
+        "scroll",
+        () => {
+          // Once scrolling stops (arrow or swipe), read the position afresh.
+          clearTimeout(settle);
+          settle = window.setTimeout(() => (target = null), 150);
+        },
+        { passive: true },
+      );
       track.addEventListener("scroll", update, { passive: true });
       window.addEventListener("resize", update);
       update();
