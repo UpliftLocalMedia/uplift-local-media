@@ -12,16 +12,16 @@
         "subtitle": "We all share the same customers, so why not work together?",
         "buttonText": "Get In Touch",
         "buttonHref": "/contact-us",
-        "image": "/images/venue-partner-hero.avif"
+        "image": "/images/venues/rough-cut-social.webp"
       }
     },
     {
       "discriminant": "content",
       "value": {
         "variant": "two-column",
-        "title": "Become A Venue Partner",
         "description": "Our network of indoor digital billboards is located within retail and restaurant venues across your local community. Venue partners enjoy the benefits of discounted <strong><a href='/indoor-billboards/screen-advertising' class='content-link'>screen advertising</a></strong>, cross-network promoting and much more! Check out our current <strong><a href='/indoor-billboards/locations' class='content-link'>network locations</a></strong> to see where your venue could be featured.",
-        "image": "/images/venue-partner-content.avif",
+        "image": "/images/venues/antigua-taco-house.webp",
+        "imageAlt": "Uplift Local Media screens at Antigua Taco House",
         "imagePosition": "left",
         "background": "primary-dark"
       }

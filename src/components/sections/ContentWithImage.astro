@@ -9,9 +9,10 @@ interface Slide {
 }
 
 interface Props {
-  title: string;
+  title?: string;
   description: string;
   image?: string;
+  imageAlt?: string;
   /** Two or more photos show as a carousel in place of `image`. */
   images?: Slide[];
   ctaText?: string;
@@ -25,6 +26,7 @@ const {
   title,
   description,
   image,
+  imageAlt,
   images = [],
   ctaText,
   ctaLink,
@@ -85,15 +87,20 @@ const descriptionColorClasses = {
             )
           }
 
-          <h2 class={`section-title ${textColorClasses[background]}`}>
-            {title}
-          </h2>
+          {
+            title && (
+              <>
+                <h2 class={`section-title ${textColorClasses[background]}`}>
+                  {title}
+                </h2>
 
-          <!-- Accent line -->
-          <div
-            class={`w-20 h-1 ${background === "white" || background === "light" || background === "gray" ? "bg-primary-light" : "bg-neutral/30"}`}
-          >
-          </div>
+                <!-- Accent line -->
+                <div
+                  class={`w-20 h-1 ${background === "white" || background === "light" || background === "gray" ? "bg-primary-light" : "bg-neutral/30"}`}
+                />
+              </>
+            )
+          }
 
           <div
             class={`section-description ${descriptionColorClasses[background]}`}
@@ -151,7 +158,7 @@ const descriptionColorClasses = {
             >
               <img
                 src={slides[0]?.src || image}
-                alt={title}
+                alt={imageAlt || title || ""}
                 width="600"
                 height="400"
                 class="w-full h-auto max-h-[800px] object-cover"
