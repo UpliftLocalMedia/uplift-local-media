@@ -37,6 +37,10 @@ const {
 
 const slides = images.filter((slide) => slide.src);
 
+// A heading-less block is a short intro: center it against the image
+// instead of top-aligning it (top alignment + sticky image is for long copy).
+const centered = !title;
+
 const bgClasses = {
   white: "bg-neutral",
   light: "bg-neutral",
@@ -65,7 +69,7 @@ const descriptionColorClasses = {
 <section class={`py-16 md:py-24 ${bgClasses[background]} relative overflow-hidden fade-in-section`}>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div
-      class={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start`}
+      class={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 ${centered ? "items-center" : "items-start"}`}
     >
       <!-- Content Column -->
       <div class={imagePosition === "left" ? "lg:order-2" : "lg:order-1"}>
@@ -141,7 +145,7 @@ const descriptionColorClasses = {
       </div>
 
       <!-- Image Column -->
-      <div class={`${imagePosition === "left" ? "lg:order-1" : "lg:order-2"} image-sticky-wrapper`}>
+      <div class={`${imagePosition === "left" ? "lg:order-1" : "lg:order-2"} ${centered ? "" : "image-sticky-wrapper"}`}>
         {slides.length > 1 ? (
           <ImageCarousel slides={slides} label={title} />
         ) : (
